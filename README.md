@@ -1,12 +1,12 @@
 # Collatz-fun
 This repo is designed to:
 - Have fun with the Collatz conjecture.
-- Act as a backup for my existing Collatz conjecture code, which is not on GitHub.
+- Act as a backup for my Collatz conjecture code, which did not start on GitHub. I first started this to just play around and put it locally on my computer.
 - Have a place to more freely and carefully mess with this code again in the future, if I choose to.
 - Show my work to anybody else curious about the Collatz conjecture or how I am messing with it.
 
 ## What is the Collatz Conjecture
-Put simply, the Collatz conjecture, also known as the 3n+1 conjectur, is a mathmetical theory. The theory states that when you are given any whole, positive number, like 5, you first see if the number is even or odd. If the number is odd, you multipley it by 3 and add 1. If the number is even, you divide it by 2. Since 5 is odd, you multiply it by 3 and add 1, which makes 16. After that operation, you do the same thing with the new number. Since 16 is even, you divide it by 2, which makes 8. 8 is even, so divide by 2 again, giving you 4. Next, divide 4 by 2, giving you 2, then 1. The number 1 is odd, so you mutiply it by 3 and add 1. This gives you 4. The number 4 divided by 2 is 2, and then 1. This gives a loop of 4, 2, 1. The theory states that for any whole, positive number, it will end in this loop. To this day, this theory has not been proven.
+Put simply, the Collatz conjecture, also known as the 3n+1 conjectur, is a mathmetical theory that states that when you are given any whole, positive number, like 5, you first see if the number is even or odd. If the number is odd, you multipley it by 3 and add 1. If the number is even, you divide it by 2. Since 5 is odd, you multiply it by 3 and add 1, which makes 16. After that operation, you do the same thing with the new number. Since 16 is even, you divide it by 2, which makes 8. 8 is even, so divide by 2 again, giving you 4. Next, divide 4 by 2, giving you 2, then 1. The number 1 is odd, so you mutiply it by 3 and add 1. This gives you 4. The number 4 divided by 2 is 2, and then 1. This gives a loop of 4, 2, 1. The theory states that for any whole, positive number, it will end in this loop. To this day, this theory has not been proven.
 
 If you want to learn more, go on YouTube or Google and search "Collatz conjecture" or "3n+1". You will get a lot more inforamtion and deeper information too.
 
