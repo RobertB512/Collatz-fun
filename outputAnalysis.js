@@ -118,26 +118,27 @@ const analyzeCollatzOutput = async () => {
 
   const formatResults = (resultsArray) => {
     const firstSeed           = `First seed tested: ${resultsArray[0].firstSeed.toLocaleString()}\n`;
-    const lastSeed            = `Last seed tested: ${resultsArray[0].lastSeed.toLocaleString()}\n`;
-    const longestHailstoneSeq = `Longest hailstone sequence: Start seed of ${resultsArray[1].seed} with a step count of ${resultsArray[1].longestHailstoneSeq}\n`;
-    const firstToHit100       = `First hailstone to hit 100: Start seed of ${resultsArray[2].seed} and a hailstone of ${resultsArray[2].numberThatHit}\n`;
-    const firstToHit500       = `First hailstone to hit 500: Start seed of ${resultsArray[3].seed} and a hailstone of ${resultsArray[3].numberThatHit}\n`;
-    const firstToHit1Th       = `First hailstone to hit 1,000: Start seed of ${resultsArray[4].seed} and a hailstone of ${resultsArray[4].numberThatHit}\n`;
-    const firstToHit5Th       = `First hailstone to hit 5,000: Start seed of ${resultsArray[5].seed} and a hailstone of ${resultsArray[5].numberThatHit}\n`;
-    const firstToHit10Th      = `First hailstone to hit 10,000: Start seed of ${resultsArray[6].seed} and a hailstone of ${resultsArray[6].numberThatHit}\n`;
-    const firstToHit25Th      = `First hailstone to hit 25,000: Start seed of ${resultsArray[7].seed} and a hailstone of ${resultsArray[7].numberThatHit}\n`;
-    const firstToHit50Th      = `First hailstone to hit 50,000: Start seed of ${resultsArray[8].seed} and a hailstone of ${resultsArray[8].numberThatHit}\n`;
-    const firstToHit100Th     = `First hailstone to hit 100,000: Start seed of ${resultsArray[9].seed} and a hailstone of ${resultsArray[9].numberThatHit}\n`;
-    const firstToHit500Th     = `First hailstone to hit 500,000: Start seed of ${resultsArray[10].seed} and a hailstone of ${resultsArray[10].numberThatHit}\n`;
-    const firstToHit1M        = `First hailstone to hit 1,000,000: Start seed of ${resultsArray[11].seed} and a hailstone of ${resultsArray[11].numberThatHit}\n`;
-    const firstToHit5M        = `First hailstone to hit 5,000,000: Start seed of ${resultsArray[12].seed} and a hailstone of ${resultsArray[12].numberThatHit}\n`;
-    const firstToHit10M       = `First hailstone to hit 10,000,000: Start seed of ${resultsArray[13].seed} and a hailstone of ${resultsArray[13].numberThatHit}\n`;
-    const firstToHit25M       = `First hailstone to hit 25,000,000: Start seed of ${resultsArray[14].seed} and a hailstone of ${resultsArray[14].numberThatHit}\n`;
-    const firstToHit50M       = `First hailstone to hit 50,000,000: Start seed of ${resultsArray[15].seed} and a hailstone of ${resultsArray[15].numberThatHit}\n`;
-    const firstToHit100M      = `First hailstone to hit 100,000,000: Start seed of ${resultsArray[16].seed} and a hailstone of ${resultsArray[16].numberThatHit}\n`;
+    const lastSeed            = `Last seed tested: ${resultsArray[0].lastSeed.toLocaleString()}\n\n`;
+    const longestHailstoneSeq = `Longest hailstone sequence:\nStart seed of ${resultsArray[1].seed} | step count of ${resultsArray[1].longestHailstoneSeq}\n\n`;
+    const firstToHitX         = "First hailstone to hit:\n" 
+    const firstToHit100       = `100: Start seed of ${resultsArray[2].seed} | hailstone of ${resultsArray[2].numberThatHit}\n`;
+    const firstToHit500       = `500: Start seed of ${resultsArray[3].seed} | hailstone of ${resultsArray[3].numberThatHit}\n`;
+    const firstToHit1Th       = `1,000: Start seed of ${resultsArray[4].seed} | hailstone of ${resultsArray[4].numberThatHit}\n`;
+    const firstToHit5Th       = `5,000: Start seed of ${resultsArray[5].seed} | hailstone of ${resultsArray[5].numberThatHit}\n`;
+    const firstToHit10Th      = `10,000: Start seed of ${resultsArray[6].seed} | hailstone of ${resultsArray[6].numberThatHit}\n`;
+    const firstToHit25Th      = `25,000: Start seed of ${resultsArray[7].seed} | hailstone of ${resultsArray[7].numberThatHit}\n`;
+    const firstToHit50Th      = `50,000: Start seed of ${resultsArray[8].seed} | hailstone of ${resultsArray[8].numberThatHit}\n`;
+    const firstToHit100Th     = `100,000: Start seed of ${resultsArray[9].seed} | hailstone of ${resultsArray[9].numberThatHit}\n`;
+    const firstToHit500Th     = `500,000: Start seed of ${resultsArray[10].seed} | hailstone of ${resultsArray[10].numberThatHit}\n`;
+    const firstToHit1M        = `1,000,000: Start seed of ${resultsArray[11].seed} | hailstone of ${resultsArray[11].numberThatHit}\n`;
+    const firstToHit5M        = `5,000,000: Start seed of ${resultsArray[12].seed} | hailstone of ${resultsArray[12].numberThatHit}\n`;
+    const firstToHit10M       = `10,000,000: Start seed of ${resultsArray[13].seed} | hailstone of ${resultsArray[13].numberThatHit}\n`;
+    const firstToHit25M       = `25,000,000: Start seed of ${resultsArray[14].seed} | hailstone of ${resultsArray[14].numberThatHit}\n`;
+    const firstToHit50M       = `50,000,000: Start seed of ${resultsArray[15].seed} | hailstone of ${resultsArray[15].numberThatHit}\n`;
+    const firstToHit100M      = `100,000,000: Start seed of ${resultsArray[16].seed} | hailstone of ${resultsArray[16].numberThatHit}\n`;
     
     const finalResults = [firstSeed, lastSeed, 
-      longestHailstoneSeq, firstToHit100, 
+      longestHailstoneSeq, firstToHitX, firstToHit100, 
       firstToHit500, firstToHit1Th, 
       firstToHit5Th, firstToHit10Th, 
       firstToHit25Th, firstToHit50Th, 
