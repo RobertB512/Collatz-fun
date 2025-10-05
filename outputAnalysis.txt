@@ -1,8 +1,8 @@
 First seed tested: 5
 Last seed tested: 100,606
-
 Longest hailstone sequence:
 Start seed of 77,031 | step count of 350
+Longest straight drop: seed of 65,536 | steps of 16
 
 First hailstone to hit:
 100: Start seed of 15 | hailstone of 106
