@@ -5,18 +5,18 @@ Start seed of 77,031 | step count of 350
 Longest straight drop: seed of 65,536 | steps of 16
 
 First hailstone to hit:
-100: Start seed of 15 | hailstone of 106
-500: Start seed of 27 | hailstone of 700
-1,000: Start seed of 27 | hailstone of 1,186
-5,000: Start seed of 27 | hailstone of 7,288
-10,000: Start seed of 255 | hailstone of 13,120
-25,000: Start seed of 447 | hailstone of 26,242
-50,000: Start seed of 703 | hailstone of 68,524
-100,000: Start seed of 703 | hailstone of 148,444
-500,000: Start seed of 1,819 | hailstone of 504,466
-1,000,000: Start seed of 1,819 | hailstone of 1,276,936
-5,000,000: Start seed of 4,255 | hailstone of 6,053,452
-10,000,000: Start seed of 9,663 | hailstone of 12,050,854
-25,000,000: Start seed of 9,663 | hailstone of 27,114,424
-50,000,000: Start seed of 20,895 | hailstone of 50,143,264
-100,000,000: Start seed of 26,623 | hailstone of 106,358,020
+100: start seed of 15 | hailstone of 106
+500: start seed of 27 | hailstone of 700
+1Th: start seed of 27 | hailstone of 1,186
+5Th: start seed of 27 | hailstone of 7,288
+10Th: start seed of 255 | hailstone of 13,120
+25Th: start seed of 447 | hailstone of 26,242
+50Th: start seed of 703 | hailstone of 68,524
+100Th: start seed of 703 | hailstone of 148,444
+500Th: start seed of 1,819 | hailstone of 504,466
+1M: start seed of 1,819 | hailstone of 1,276,936
+5M: start seed of 4,255 | hailstone of 6,053,452
+10M: start seed of 9,663 | hailstone of 12,050,854
+25M: start seed of 9,663 | hailstone of 27,114,424
+50M: start seed of 20,895 | hailstone of 50,143,264
+100M: start seed of 26,623 | hailstone of 106,358,020

@@ -164,27 +164,91 @@ const analyzeCollatzOutput = async () => {
 		};
 	};
 
+	const formHailstoneOutputStr = (goal, startSeed, hailstone) => {
+		return `${goal}: start seed of ${startSeed} | hailstone of ${hailstone}\n`;
+	};
+
 	const formatResults = (resultsArray) => {
 		const firstSeed = `First seed tested: ${resultsArray[0].firstSeed.toLocaleString()}\n`;
 		const lastSeed = `Last seed tested: ${resultsArray[0].lastSeed.toLocaleString()}\n`;
 		const longestHailstoneSeq = `Longest hailstone sequence:\nStart seed of ${resultsArray[1].seed} | step count of ${resultsArray[1].longestHailstoneSeq}\n`;
 		const longestStraightDrop = `Longest straight drop: seed of ${resultsArray[2].seed} | steps of ${resultsArray[2].dropSteps}\n\n`;
 		const firstToHitX = "First hailstone to hit:\n";
-		const firstToHit100 = `100: Start seed of ${resultsArray[3].seed} | hailstone of ${resultsArray[3].numberThatHit}\n`;
-		const firstToHit500 = `500: Start seed of ${resultsArray[4].seed} | hailstone of ${resultsArray[4].numberThatHit}\n`;
-		const firstToHit1Th = `1,000: Start seed of ${resultsArray[5].seed} | hailstone of ${resultsArray[5].numberThatHit}\n`;
-		const firstToHit5Th = `5,000: Start seed of ${resultsArray[6].seed} | hailstone of ${resultsArray[6].numberThatHit}\n`;
-		const firstToHit10Th = `10,000: Start seed of ${resultsArray[7].seed} | hailstone of ${resultsArray[7].numberThatHit}\n`;
-		const firstToHit25Th = `25,000: Start seed of ${resultsArray[8].seed} | hailstone of ${resultsArray[8].numberThatHit}\n`;
-		const firstToHit50Th = `50,000: Start seed of ${resultsArray[9].seed} | hailstone of ${resultsArray[9].numberThatHit}\n`;
-		const firstToHit100Th = `100,000: Start seed of ${resultsArray[10].seed} | hailstone of ${resultsArray[10].numberThatHit}\n`;
-		const firstToHit500Th = `500,000: Start seed of ${resultsArray[11].seed} | hailstone of ${resultsArray[11].numberThatHit}\n`;
-		const firstToHit1M = `1,000,000: Start seed of ${resultsArray[12].seed} | hailstone of ${resultsArray[12].numberThatHit}\n`;
-		const firstToHit5M = `5,000,000: Start seed of ${resultsArray[13].seed} | hailstone of ${resultsArray[13].numberThatHit}\n`;
-		const firstToHit10M = `10,000,000: Start seed of ${resultsArray[14].seed} | hailstone of ${resultsArray[14].numberThatHit}\n`;
-		const firstToHit25M = `25,000,000: Start seed of ${resultsArray[15].seed} | hailstone of ${resultsArray[15].numberThatHit}\n`;
-		const firstToHit50M = `50,000,000: Start seed of ${resultsArray[16].seed} | hailstone of ${resultsArray[16].numberThatHit}\n`;
-		const firstToHit100M = `100,000,000: Start seed of ${resultsArray[17].seed} | hailstone of ${resultsArray[17].numberThatHit}\n`;
+		const firstToHit100 = formHailstoneOutputStr(
+			"100",
+			resultsArray[3].seed,
+			resultsArray[3].numberThatHit
+		);
+		const firstToHit500 = formHailstoneOutputStr(
+			"500",
+			resultsArray[4].seed,
+			resultsArray[4].numberThatHit
+		);
+    const firstToHit1Th = formHailstoneOutputStr(
+			"1Th",
+			resultsArray[5].seed,
+			resultsArray[5].numberThatHit
+		);
+    const firstToHit5Th = formHailstoneOutputStr(
+			"5Th",
+			resultsArray[6].seed,
+			resultsArray[6].numberThatHit
+		);
+    const firstToHit10Th = formHailstoneOutputStr(
+			"10Th",
+			resultsArray[7].seed,
+			resultsArray[7].numberThatHit
+		);
+    const firstToHit25Th = formHailstoneOutputStr(
+			"25Th",
+			resultsArray[8].seed,
+			resultsArray[8].numberThatHit
+		);
+    const firstToHit50Th = formHailstoneOutputStr(
+			"50Th",
+			resultsArray[9].seed,
+			resultsArray[9].numberThatHit
+		);
+    const firstToHit100Th = formHailstoneOutputStr(
+			"100Th",
+			resultsArray[10].seed,
+			resultsArray[10].numberThatHit
+		);
+    const firstToHit500Th = formHailstoneOutputStr(
+			"500Th",
+			resultsArray[11].seed,
+			resultsArray[11].numberThatHit
+		);
+    const firstToHit1M = formHailstoneOutputStr(
+			"1M",
+			resultsArray[12].seed,
+			resultsArray[12].numberThatHit
+		);
+    const firstToHit5M = formHailstoneOutputStr(
+			"5M",
+			resultsArray[13].seed,
+			resultsArray[13].numberThatHit
+		);
+    const firstToHit10M = formHailstoneOutputStr(
+			"10M",
+			resultsArray[14].seed,
+			resultsArray[14].numberThatHit
+		);
+    const firstToHit25M = formHailstoneOutputStr(
+			"25M",
+			resultsArray[15].seed,
+			resultsArray[15].numberThatHit
+		);
+    const firstToHit50M = formHailstoneOutputStr(
+			"50M",
+			resultsArray[16].seed,
+			resultsArray[16].numberThatHit
+		);
+    const firstToHit100M = formHailstoneOutputStr(
+			"100M",
+			resultsArray[17].seed,
+			resultsArray[17].numberThatHit
+		);
 
 		const finalResults = [
 			firstSeed,
