@@ -165,14 +165,14 @@ const analyzeCollatzOutput = async () => {
 	};
 
 	const formHailstoneOutputStr = (goal, startSeed, hailstone) => {
-		return `${goal}: start seed of ${startSeed} | hailstone of ${hailstone}\n`;
+		return `${goal}: seed of ${startSeed} | hailstone of ${hailstone}\n`;
 	};
 
 	const formatResults = (resultsArray) => {
 		const firstSeed = `First seed tested: ${resultsArray[0].firstSeed.toLocaleString()}\n`;
 		const lastSeed = `Last seed tested: ${resultsArray[0].lastSeed.toLocaleString()}\n`;
-		const longestHailstoneSeq = `Longest hailstone sequence:\nStart seed of ${resultsArray[1].seed} | step count of ${resultsArray[1].longestHailstoneSeq}\n`;
-		const longestStraightDrop = `Longest straight drop: seed of ${resultsArray[2].seed} | steps of ${resultsArray[2].dropSteps}\n\n`;
+		const longestStraightDrop = `Longest straight drop: \nseed of ${resultsArray[2].seed} | steps of ${resultsArray[2].dropSteps}\n\n`;
+		const longestHailstoneSeq = `Longest hailstone sequence: \nseed of ${resultsArray[1].seed} | step count of ${resultsArray[1].longestHailstoneSeq}\n\n`;
 		const firstToHitX = "First hailstone to hit:\n";
 		const firstToHit100 = formHailstoneOutputStr(
 			"100",
@@ -184,67 +184,67 @@ const analyzeCollatzOutput = async () => {
 			resultsArray[4].seed,
 			resultsArray[4].numberThatHit
 		);
-    const firstToHit1Th = formHailstoneOutputStr(
+		const firstToHit1Th = formHailstoneOutputStr(
 			"1Th",
 			resultsArray[5].seed,
 			resultsArray[5].numberThatHit
 		);
-    const firstToHit5Th = formHailstoneOutputStr(
+		const firstToHit5Th = formHailstoneOutputStr(
 			"5Th",
 			resultsArray[6].seed,
 			resultsArray[6].numberThatHit
 		);
-    const firstToHit10Th = formHailstoneOutputStr(
+		const firstToHit10Th = formHailstoneOutputStr(
 			"10Th",
 			resultsArray[7].seed,
 			resultsArray[7].numberThatHit
 		);
-    const firstToHit25Th = formHailstoneOutputStr(
+		const firstToHit25Th = formHailstoneOutputStr(
 			"25Th",
 			resultsArray[8].seed,
 			resultsArray[8].numberThatHit
 		);
-    const firstToHit50Th = formHailstoneOutputStr(
+		const firstToHit50Th = formHailstoneOutputStr(
 			"50Th",
 			resultsArray[9].seed,
 			resultsArray[9].numberThatHit
 		);
-    const firstToHit100Th = formHailstoneOutputStr(
+		const firstToHit100Th = formHailstoneOutputStr(
 			"100Th",
 			resultsArray[10].seed,
 			resultsArray[10].numberThatHit
 		);
-    const firstToHit500Th = formHailstoneOutputStr(
+		const firstToHit500Th = formHailstoneOutputStr(
 			"500Th",
 			resultsArray[11].seed,
 			resultsArray[11].numberThatHit
 		);
-    const firstToHit1M = formHailstoneOutputStr(
+		const firstToHit1M = formHailstoneOutputStr(
 			"1M",
 			resultsArray[12].seed,
 			resultsArray[12].numberThatHit
 		);
-    const firstToHit5M = formHailstoneOutputStr(
+		const firstToHit5M = formHailstoneOutputStr(
 			"5M",
 			resultsArray[13].seed,
 			resultsArray[13].numberThatHit
 		);
-    const firstToHit10M = formHailstoneOutputStr(
+		const firstToHit10M = formHailstoneOutputStr(
 			"10M",
 			resultsArray[14].seed,
 			resultsArray[14].numberThatHit
 		);
-    const firstToHit25M = formHailstoneOutputStr(
+		const firstToHit25M = formHailstoneOutputStr(
 			"25M",
 			resultsArray[15].seed,
 			resultsArray[15].numberThatHit
 		);
-    const firstToHit50M = formHailstoneOutputStr(
+		const firstToHit50M = formHailstoneOutputStr(
 			"50M",
 			resultsArray[16].seed,
 			resultsArray[16].numberThatHit
 		);
-    const firstToHit100M = formHailstoneOutputStr(
+		const firstToHit100M = formHailstoneOutputStr(
 			"100M",
 			resultsArray[17].seed,
 			resultsArray[17].numberThatHit
