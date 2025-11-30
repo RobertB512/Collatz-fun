@@ -94,7 +94,7 @@ const analyzeCollatzOutput = async () => {
 		// Ex: finds the first number in all sequences combined to hit 1,000, 5,000, 10,000,
 		// or any other number. For this project, these hit points will be predetermined.
 
-		const seqCollection = breakUpSeq(collatzArray);
+		const seqCollection = brokenUpSeq;
 		const numberToHit = hitPoint;
 		const errorMsg = `error or number to hit ${numberToHit} is TBD.`;
 
@@ -115,7 +115,7 @@ const analyzeCollatzOutput = async () => {
 	};
 
 	const findLongestHailstoneSeq = (collatzArray) => {
-		const seqCollection = breakUpSeq(collatzArray);
+		const seqCollection = brokenUpSeq;
 		let longestHailstoneSeq = 0;
 		let startingSeed;
 
@@ -135,7 +135,7 @@ const analyzeCollatzOutput = async () => {
 
 	// find the longest straight drop from x to 1
 	const findLongestStraightDrop = (collatzArray) => {
-		const seqCollection = breakUpSeq(collatzArray).reverse();
+		const seqCollection = [...brokenUpSeq].reverse();
 		let originalSeed = 0;
 		let longestDrop = 0;
 
@@ -289,24 +289,25 @@ const analyzeCollatzOutput = async () => {
 	const outputFile = "outputAnalysis.txt";
 	const collatzData = await readFile(sourceFile);
 	const seedInfo = collatzData.splice(2, collatzData.length - 1); // To remove some extra text
+  const brokenUpSeq = breakUpSeq(seedInfo)
 	const firstAndLastSeed = findFirstAndLastSeed(seedInfo);
 	const longestHailstoneSeq = findLongestHailstoneSeq(seedInfo);
 	const longestStraightDrop = findLongestStraightDrop(seedInfo);
-	const firstToBreak100 = findFirstToBreakX(seedInfo, 100);
-	const firstToBreak500 = findFirstToBreakX(seedInfo, 500);
-	const firstToBreak1Th = findFirstToBreakX(seedInfo, 1_000);
-	const firstToBreak5Th = findFirstToBreakX(seedInfo, 5_000);
-	const firstToBreak10Th = findFirstToBreakX(seedInfo, 10_000);
-	const firstToBreak25Th = findFirstToBreakX(seedInfo, 25_000);
-	const firstToBreak50Th = findFirstToBreakX(seedInfo, 50_000);
-	const firstToBreak100Th = findFirstToBreakX(seedInfo, 100_000);
-	const firstToBreak500Th = findFirstToBreakX(seedInfo, 500_000);
-	const firstToBreak1M = findFirstToBreakX(seedInfo, 1_000_000);
-	const firstToBreak5M = findFirstToBreakX(seedInfo, 5_000_000);
-	const firstToBreak10M = findFirstToBreakX(seedInfo, 10_000_000);
-	const firstToBreak25M = findFirstToBreakX(seedInfo, 25_000_000);
-	const firstToBreak50M = findFirstToBreakX(seedInfo, 50_000_000);
-	const firstToBreak100M = findFirstToBreakX(seedInfo, 100_000_000);
+	const firstToBreak100 = findFirstToBreakX(brokenUpSeq, 100);
+	const firstToBreak500 = findFirstToBreakX(brokenUpSeq, 500);
+	const firstToBreak1Th = findFirstToBreakX(brokenUpSeq, 1_000);
+	const firstToBreak5Th = findFirstToBreakX(brokenUpSeq, 5_000);
+	const firstToBreak10Th = findFirstToBreakX(brokenUpSeq, 10_000);
+	const firstToBreak25Th = findFirstToBreakX(brokenUpSeq, 25_000);
+	const firstToBreak50Th = findFirstToBreakX(brokenUpSeq, 50_000);
+	const firstToBreak100Th = findFirstToBreakX(brokenUpSeq, 100_000);
+	const firstToBreak500Th = findFirstToBreakX(brokenUpSeq, 500_000);
+	const firstToBreak1M = findFirstToBreakX(brokenUpSeq, 1_000_000);
+	const firstToBreak5M = findFirstToBreakX(brokenUpSeq, 5_000_000);
+	const firstToBreak10M = findFirstToBreakX(brokenUpSeq, 10_000_000);
+	const firstToBreak25M = findFirstToBreakX(brokenUpSeq, 25_000_000);
+	const firstToBreak50M = findFirstToBreakX(brokenUpSeq, 50_000_000);
+	const firstToBreak100M = findFirstToBreakX(brokenUpSeq, 100_000_000);
 
 	const resultsArray = [
 		firstAndLastSeed,
