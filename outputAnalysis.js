@@ -92,7 +92,6 @@ const analyzeCollatzOutput = async () => {
 	const findLargestHailstone = (collatzArray) => {
 		let largestHailstone = 0;
 		let hailstoneSeed = 0;
-		// let currentLargest = 0;
 
 		for (seq of collatzArray) {
 			let currentLargest = seq.highestHailstone;
@@ -103,8 +102,6 @@ const analyzeCollatzOutput = async () => {
 				hailstoneSeed = currentSeed;
 			}
 		}
-
-		console.log(hailstoneSeed, largestHailstone);
 
 		return {
 			seed: hailstoneSeed.toLocaleString(),
@@ -273,6 +270,16 @@ const analyzeCollatzOutput = async () => {
 			resultsArray[17].seed,
 			resultsArray[17].numberThatHit
 		);
+		const firstToHit500M = formHailstoneOutputStr(
+			"500M",
+			resultsArray[19].seed,
+			resultsArray[19].numberThatHit
+		);
+		const firstToHit1B = formHailstoneOutputStr(
+			"1B",
+			resultsArray[20].seed,
+			resultsArray[20].numberThatHit
+		);
 
 		const finalResults = [
 			firstSeed,
@@ -296,6 +303,8 @@ const analyzeCollatzOutput = async () => {
 			firstToHit25M,
 			firstToHit50M,
 			firstToHit100M,
+			firstToHit500M,
+			firstToHit1B,
 		];
 
 		return finalResults;
@@ -334,6 +343,8 @@ const analyzeCollatzOutput = async () => {
 	const firstToBreak25M = findFirstToBreakX(brokenUpSeq, 25_000_000);
 	const firstToBreak50M = findFirstToBreakX(brokenUpSeq, 50_000_000);
 	const firstToBreak100M = findFirstToBreakX(brokenUpSeq, 100_000_000);
+	const firstToBreak500M = findFirstToBreakX(brokenUpSeq, 500_000_000);
+	const firstToBreak1B = findFirstToBreakX(brokenUpSeq, 1_000_000_000);
 
 	const resultsArray = [
 		firstAndLastSeed,
@@ -355,6 +366,8 @@ const analyzeCollatzOutput = async () => {
 		firstToBreak50M,
 		firstToBreak100M,
 		largestHailstone,
+		firstToBreak500M,
+		firstToBreak1B,
 	];
 	const formatedResults = formatResults(resultsArray);
 

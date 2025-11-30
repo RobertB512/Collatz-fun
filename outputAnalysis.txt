@@ -23,3 +23,5 @@ First hailstone to hit:
 25M: seed of 9,663 | hailstone of 27,114,424
 50M: seed of 20,895 | hailstone of 50,143,264
 100M: seed of 26,623 | hailstone of 106,358,020
+500M: seed of 60,975 | hailstone of 593,279,152
+1B: seed of 77,671 | hailstone of 1,047,216,490
