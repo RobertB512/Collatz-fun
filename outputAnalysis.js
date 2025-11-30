@@ -89,6 +89,29 @@ const analyzeCollatzOutput = async () => {
 		return seqCollection;
 	};
 
+	const findLargestHailstone = (collatzArray) => {
+		let largestHailstone = 0;
+		let hailstoneSeed = 0;
+		// let currentLargest = 0;
+
+		for (seq of collatzArray) {
+			let currentLargest = seq.highestHailstone;
+			let currentSeed = seq.seed;
+
+			if (currentLargest > largestHailstone) {
+				largestHailstone = currentLargest;
+				hailstoneSeed = currentSeed;
+			}
+		}
+
+		console.log(hailstoneSeed, largestHailstone);
+
+		return {
+			seed: hailstoneSeed.toLocaleString(),
+			largestHailstone: largestHailstone.toLocaleString(),
+		};
+	};
+
 	const findFirstToBreakX = (collatzArray, hitPoint) => {
 		// This function finds the first hailstone out of all sequences to hit a number.
 		// Ex: finds the first number in all sequences combined to hit 1,000, 5,000, 10,000,
@@ -171,8 +194,9 @@ const analyzeCollatzOutput = async () => {
 	const formatResults = (resultsArray) => {
 		const firstSeed = `First seed tested: ${resultsArray[0].firstSeed.toLocaleString()}\n`;
 		const lastSeed = `Last seed tested: ${resultsArray[0].lastSeed.toLocaleString()}\n`;
+		const longestHailstoneSeq = `Longest hailstone sequence: \nseed of ${resultsArray[1].seed} | step count of ${resultsArray[1].longestHailstoneSeq}\n`;
+		const largestHailstone = `Largest hailstone: \nseed of ${resultsArray[18].seed} | hailstone of ${resultsArray[18].largestHailstone}\n`;
 		const longestStraightDrop = `Longest straight drop: \nseed of ${resultsArray[2].seed} | steps of ${resultsArray[2].dropSteps}\n\n`;
-		const longestHailstoneSeq = `Longest hailstone sequence: \nseed of ${resultsArray[1].seed} | step count of ${resultsArray[1].longestHailstoneSeq}\n\n`;
 		const firstToHitX = "First hailstone to hit:\n";
 		const firstToHit100 = formHailstoneOutputStr(
 			"100",
@@ -254,6 +278,7 @@ const analyzeCollatzOutput = async () => {
 			firstSeed,
 			lastSeed,
 			longestHailstoneSeq,
+			largestHailstone,
 			longestStraightDrop,
 			firstToHitX,
 			firstToHit100,
@@ -289,9 +314,10 @@ const analyzeCollatzOutput = async () => {
 	const outputFile = "outputAnalysis.txt";
 	const collatzData = await readFile(sourceFile);
 	const seedInfo = collatzData.splice(2, collatzData.length - 1); // To remove some extra text
-  const brokenUpSeq = breakUpSeq(seedInfo)
+	const brokenUpSeq = breakUpSeq(seedInfo);
 	const firstAndLastSeed = findFirstAndLastSeed(seedInfo);
 	const longestHailstoneSeq = findLongestHailstoneSeq(seedInfo);
+	const largestHailstone = findLargestHailstone(brokenUpSeq);
 	const longestStraightDrop = findLongestStraightDrop(seedInfo);
 	const firstToBreak100 = findFirstToBreakX(brokenUpSeq, 100);
 	const firstToBreak500 = findFirstToBreakX(brokenUpSeq, 500);
@@ -328,6 +354,7 @@ const analyzeCollatzOutput = async () => {
 		firstToBreak25M,
 		firstToBreak50M,
 		firstToBreak100M,
+		largestHailstone,
 	];
 	const formatedResults = formatResults(resultsArray);
 
