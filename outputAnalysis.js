@@ -13,25 +13,8 @@ const analyzeCollatzOutput = async () => {
 	};
 
 	const findFirstAndLastSeed = (collatzArray) => {
-		const findVals = (array) => {
-			const lines = array.split("\n");
-			const filteredLines = lines.filter((val) => val.trim()); // To remove empty strings.
-			const firstLine = filteredLines[0];
-			const firstLineParts = firstLine.split(" ");
-			const seedStr = firstLineParts[firstLineParts.length - 1].replaceAll(
-				",",
-				""
-			);
-			const seedVal = Number(seedStr);
-
-			return seedVal;
-		};
-
-		const firstSeq = collatzArray[0]; // Index 2 since the array starts with other text.
-		const lastSeq = collatzArray[collatzArray.length - 1];
-
-		const firstSeed = findVals(firstSeq);
-		const lastSeed = findVals(lastSeq);
+		const firstSeed = collatzArray[0].seed;
+		const lastSeed = collatzArray[collatzArray.length - 1].seed;
 
 		return { firstSeed: firstSeed, lastSeed: lastSeed };
 	};
@@ -324,10 +307,10 @@ const analyzeCollatzOutput = async () => {
 	const collatzData = await readFile(sourceFile);
 	const seedInfo = collatzData.splice(2, collatzData.length - 1); // To remove some extra text
 	const brokenUpSeq = breakUpSeq(seedInfo);
-	const firstAndLastSeed = findFirstAndLastSeed(seedInfo);
-	const longestHailstoneSeq = findLongestHailstoneSeq(seedInfo);
+	const firstAndLastSeed = findFirstAndLastSeed(brokenUpSeq);
+	const longestHailstoneSeq = findLongestHailstoneSeq(brokenUpSeq);
 	const largestHailstone = findLargestHailstone(brokenUpSeq);
-	const longestStraightDrop = findLongestStraightDrop(seedInfo);
+	const longestStraightDrop = findLongestStraightDrop(brokenUpSeq);
 	const firstToBreak100 = findFirstToBreakX(brokenUpSeq, 100);
 	const firstToBreak500 = findFirstToBreakX(brokenUpSeq, 500);
 	const firstToBreak1Th = findFirstToBreakX(brokenUpSeq, 1_000);
