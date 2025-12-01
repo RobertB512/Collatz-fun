@@ -124,7 +124,6 @@ const analyzeCollatzOutput = async () => {
 
 		for (const seqInfo of seqCollection) {
 			if (seqInfo.stepCount > longestHailstoneSeq) {
-				// console.log(seqInfo.stepCount);
 				longestHailstoneSeq = seqInfo.stepCount;
 				startingSeed = seqInfo.seed;
 			}
@@ -356,23 +355,6 @@ const analyzeCollatzOutput = async () => {
 
 	await writeToFile(outputFile, formatedResults.join(""));
 
-	// Logs
-	// console.log(firstToBreak100);
-	// console.log(firstToBreak1Th);
-	// console.log(firstToBreak5Th);
-	// console.log(firstToBreak10Th);
-	// console.log(firstToBreak25Th);
-	// console.log(firstToBreak50Th);
-	// console.log(firstToBreak100Th);
-	// console.log(firstToBreak500Th);
-	// console.log(firstToBreak1M);
-	// console.log(firstToBreak5M);
-	// console.log(firstToBreak10M);
-	// console.log(firstToBreak25M);
-	// console.log(firstToBreak50M);
-	// console.log(firstToBreak100M);
-	// console.log(firstAndLastSeed);
-	// console.log(longestHailstoneSeq);
 };
 
 analyzeCollatzOutput();
