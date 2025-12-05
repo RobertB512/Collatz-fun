@@ -37,7 +37,7 @@ const generateCollatzSequence = async () => {
     return
   }
 
-  const numbersToAdd = 100;                         // The number of Collatz sequences to add to the output file.
+  const numbersToAdd = 2;                         // The number of Collatz sequences to add to the output file.
   const endingSeed   = startingSeed + numbersToAdd; // Ending number for Collatz sequence.
 
   console.log(`Next value is: ${startingSeed}`);

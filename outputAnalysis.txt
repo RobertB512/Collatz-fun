@@ -1,5 +1,5 @@
 - First seed tested: 5
-- Last seed tested: 100,606
+- Last seed tested: 101,000
 - Largest hailstone: 
 seed of 77,671 | hailstone of 1,570,824,736
 - Longest hailstone sequence: 
