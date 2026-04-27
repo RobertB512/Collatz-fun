@@ -97,11 +97,11 @@ const analyzeCollatzOutput = async () => {
 		// Ex: finds the first number in all sequences combined to hit 1,000, 5,000, 10,000,
 		// or any other number. For this project, these hit points will be predetermined.
 
-		const seqCollection = brokenUpSeq;
+		// const seqCollection = collatzArray;
 		const numberToHit = hitPoint;
 		const errorMsg = `error or number to hit ${numberToHit} is TBD.`;
 
-		for (const seqInfo of seqCollection) {
+		for (const seqInfo of collatzArray) {
 			const hailstoneNumber = seqInfo.hailstoneSeq.find(
 				(val) => val >= numberToHit
 			);
