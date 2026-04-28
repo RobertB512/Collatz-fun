@@ -2,7 +2,6 @@
 
 const fs = require("fs");
 const { json } = require("stream/consumers");
-// const { json } = require("stream/consumers");
 
 const generateCollatzSequence = async () => {
   const writeToFile = async (path, data) => {
@@ -57,7 +56,7 @@ const generateCollatzSequence = async () => {
 			if (valueOfN > highestHailstone) highestHailstone = valueOfN;
 
 			// sequenceValues.push(valueOfN.toLocaleString());
-      sequenceValues.push(valueOfN.toLocaleString());
+      sequenceValues.push(valueOfN);
 
     } while (valueOfN >= 2);
 
@@ -82,10 +81,10 @@ const generateCollatzSequence = async () => {
     // const highestHailstoneReport = {highestHailstone: highestHailstone.toLocaleString()};
 
     const fullSequenceReport = {
-			seed: startingSeed.toLocaleString(),
+			seed: startingSeed,
 			hailstoneSeq: sequenceValues,
-			stepCount: stepsToReachLoop.toLocaleString(),
-			highestHailstone: highestHailstone.toLocaleString(),
+			stepCount: stepsToReachLoop,
+			highestHailstone: highestHailstone,
 
 			// outputDivider,
 			// startValueReport,
