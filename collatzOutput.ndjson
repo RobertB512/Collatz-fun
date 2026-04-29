@@ -1,0 +1,12 @@
+{"seed":1,"hailstoneSeq":[4,2,1],"stepCount":3,"highestHailstone":4}
+{"seed":2,"hailstoneSeq":[1],"stepCount":1,"highestHailstone":1}
+{"seed":3,"hailstoneSeq":[10,5,16,8,4,2,1],"stepCount":7,"highestHailstone":16}
+{"seed":4,"hailstoneSeq":[2,1],"stepCount":2,"highestHailstone":2}
+{"seed":5,"hailstoneSeq":[16,8,4,2,1],"stepCount":5,"highestHailstone":16}
+{"seed":6,"hailstoneSeq":[3,10,5,16,8,4,2,1],"stepCount":8,"highestHailstone":16}
+{"seed":7,"hailstoneSeq":[22,11,34,17,52,26,13,40,20,10,5,16,8,4,2,1],"stepCount":16,"highestHailstone":52}
+{"seed":8,"hailstoneSeq":[4,2,1],"stepCount":3,"highestHailstone":4}
+{"seed":9,"hailstoneSeq":[28,14,7,22,11,34,17,52,26,13,40,20,10,5,16,8,4,2,1],"stepCount":19,"highestHailstone":52}
+{"seed":10,"hailstoneSeq":[5,16,8,4,2,1],"stepCount":6,"highestHailstone":16}
+{"seed":11,"hailstoneSeq":[34,17,52,26,13,40,20,10,5,16,8,4,2,1],"stepCount":14,"highestHailstone":52}
+{"seed":12,"hailstoneSeq":[6,3,10,5,16,8,4,2,1],"stepCount":9,"highestHailstone":16}
