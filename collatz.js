@@ -68,8 +68,9 @@ const prepSeqGeneration = async () => {
 		startingSeed = 1;
 	}
 
-	const numbersToAdd = 5; // The number of Collatz sequences to add to the output file.
-	const endingSeed = startingSeed + numbersToAdd; // Ending number for Collatz sequence.
+	const numbersToAdd = 5000; // The number of Collatz sequences to add to the output file.
+	const endingSeed = startingSeed + numbersToAdd - 1; // - 1 since otherwise one additional seq would be added, since
+  // every run starts at last seed + 1, which would have not been included if it weren't for the - 1
 
 	console.log(`Next value is: ${startingSeed} \n`);
   console.log(`Adding ${numbersToAdd} more numbers...`);

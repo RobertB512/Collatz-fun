@@ -16,6 +16,8 @@ import { formatResults } from "./analysisFunctions/formatResults.js";
 
 // base function
 const analyzeCollatzOutput = async () => {
+	console.time("timeProg");
+
 	const sourceFile = "collatzOutput.txt";
 	const outputFile = "outputAnalysis.txt";
 	const collatzData = await getFileContents(sourceFile);
@@ -75,6 +77,9 @@ const analyzeCollatzOutput = async () => {
 	} catch (err) {
 		console.error("Error writing file:", err);
 	}
+
+  console.timeEnd("timeProg");
+
 };
 
 analyzeCollatzOutput();
