@@ -1,0 +1,21 @@
+{
+  "name": "collatzfun",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "This repo is designed to: Output numbers of the collatz conjecture and analyze them.",
+  "main": "collatz.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobertB512/Collatz-fun.git"
+  },
+  "keywords": ["collatz", "conjecture", "3n+1"],
+  "author": "Robert Butcher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RobertB512/Collatz-fun/issues"
+  },
+  "homepage": "https://github.com/RobertB512/Collatz-fun#readme"
+}
