@@ -1,11 +1,11 @@
-- First seed tested: 5
-- Last seed tested: 101,000
+- First seed tested: 1
+- Last seed tested: 100,000
 - Largest hailstone: 
 seed of 77,671 | hailstone of 1,570,824,736
 - Longest hailstone sequence: 
 seed of 77,031 | step count of 350
-- Mean sequence length (rounded): 108
-- Standard deviation of sequence lengths: 51.34
+- Mean sequence length: 107.54
+- Standard deviation of sequence length: 51.37
 - Longest straight drop: 
 seed of 65,536 | steps of 16
 
@@ -13,7 +13,7 @@ First hailstone to hit:
 100: seed of 15 | hailstone of 106
 500: seed of 27 | hailstone of 700
 1Th: seed of 27 | hailstone of 1,186
-5Th: seed of 27 | hailstone of 7,288
+5th: seed of 27 | hailstone of 7,288
 10Th: seed of 255 | hailstone of 13,120
 25Th: seed of 447 | hailstone of 26,242
 50Th: seed of 703 | hailstone of 68,524

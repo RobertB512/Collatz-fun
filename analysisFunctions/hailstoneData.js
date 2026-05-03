@@ -1,8 +1,8 @@
-export const findLargestHailstone = (collatzArray) => {
+export const findLargestHailstone = (seqInfo) => {
 	let largestHailstone = 0;
 	let hailstoneSeed = 0;
 
-	for (const seq of collatzArray) {
+	for (const seq of seqInfo) {
 		let currentLargest = seq.highestHailstone;
 		let currentSeed = seq.seed;
 
@@ -18,7 +18,7 @@ export const findLargestHailstone = (collatzArray) => {
 	};
 };
 
-export const findFirstToBreakX = (collatzArray, hitPoint) => {
+export const findFirstToBreakX = (seqInfo, hitPoint) => {
 	// This function finds the first hailstone out of all sequences to hit a number.
 	// Ex: finds the first number in all sequences combined to hit 1,000, 5,000, 10,000,
 	// or any other number. For this project, these hit points will be predetermined.
@@ -27,15 +27,15 @@ export const findFirstToBreakX = (collatzArray, hitPoint) => {
 	const numberToHit = hitPoint;
 	const errorMsg = `error or number to hit ${numberToHit} is TBD.`;
 
-	for (const seqInfo of collatzArray) {
-		const hailstoneNumber = seqInfo.hailstoneSeq.find(
+	for (const seq of seqInfo) {
+		const hailstoneNumber = seq.hailstoneSeq.find(
 			(val) => val >= numberToHit,
 		);
 
 		if (hailstoneNumber !== undefined) {
 			return {
 				numberToHit: numberToHit.toLocaleString(),
-				seed: seqInfo.seed.toLocaleString(),
+				seed: seq.seed.toLocaleString(),
 				numberThatHit: hailstoneNumber.toLocaleString(),
 			};
 		}
@@ -43,66 +43,59 @@ export const findFirstToBreakX = (collatzArray, hitPoint) => {
 	return errorMsg;
 };
 
-export const analyzeHailstoneSeq = (collatzArray) => {
-	const seqCollection = collatzArray;
-	let longestHailstoneSeq = 0;
-	let startingSeed;
+export const analyzeHailstoneSeq = async (seqInfo) => {
+	let mostSteps = 0;
+	let seed;
 	let lengthContainer = []; //contains the length of each seq
 	let meanSeqLength = 0;
+	let seqTotals = 0; // total of all seq lengths
 	let squaredDiff = 0;
 	let variance = 0;
 	let sdOfSeqLength = 0; // the standard deviation of all seq lengths
 
-	// find the longest hailstone seq
-	for (const seqInfo of seqCollection) {
-		lengthContainer.push(seqInfo.stepCount);
-
-		if (seqInfo.stepCount > longestHailstoneSeq) {
-			longestHailstoneSeq = seqInfo.stepCount;
-			startingSeed = seqInfo.seed;
+	// find longest seq
+	for (let seq of seqInfo) {
+		if (seq.stepCount > mostSteps) {
+			mostSteps = seq.stepCount;
+			seed = seq.seed;
 		}
 	}
 
-	// find the mean seq length
-	for (const seqInfo of lengthContainer) {
-		meanSeqLength += seqInfo;
+	// find mean seq length
+	for (let seq of seqInfo) {
+    let steps = seq.stepCount;
+		lengthContainer.push(steps);
+		seqTotals += steps;
 	}
-	meanSeqLength /= lengthContainer.length;
-	meanSeqLength = Math.round(meanSeqLength);
+	meanSeqLength = (seqTotals / lengthContainer.length).toFixed(2);
 
-	// find the squared differences from the mean
-	squaredDiff = lengthContainer.map((length) => {
-		return (length - meanSeqLength) ** 2;
-	});
-
-	// find the mean of squared differences (variance)
-	for (const value of squaredDiff) {
-		variance += value;
+	// find squared difference of seq length
+	for (let num of lengthContainer) {
+		squaredDiff += (num - meanSeqLength) ** 2;
 	}
-	variance /= lengthContainer.length;
 
-	// find standard deviation
+
+	// find variance of seq length
+	variance = squaredDiff / lengthContainer.length;
+
+	// find the pop std of squared differences (variance)
 	sdOfSeqLength = Math.sqrt(variance).toFixed(2);
 
 	return {
-		seed: startingSeed.toLocaleString(),
-		longestHailstoneSeq: longestHailstoneSeq.toLocaleString(),
+		seed: seed.toLocaleString(),
+		longestHailstoneSeq: mostSteps.toLocaleString(),
 		meanSeqLength: meanSeqLength.toLocaleString(),
 		sdOfSeqLength: sdOfSeqLength.toLocaleString(),
 	};
 };
 
-export const formHailstoneOutputStr = (goal, startSeed, hailstone) => {
-	return `${goal}: seed of ${startSeed} | hailstone of ${hailstone}\n`;
-};
-
-export const findLongestStraightDrop = (brokenUpSeq) => {
-	const seqCollection = [...brokenUpSeq].reverse();
+export const findLongestStraightDrop = (seqInfo) => {
+	const seqCollection = [...seqInfo].reverse();
 	let originalSeed = 0;
 	let longestDrop = 0;
 
-	for (const seqInfo of seqCollection) {
-		let seed = seqInfo.seed;
+	for (const seq of seqInfo) {
+		let seed = seq.seed;
 		let startingSeed = seed;
 		let currentDrop = 0;
 

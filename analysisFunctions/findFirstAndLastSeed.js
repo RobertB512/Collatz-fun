@@ -1,6 +1,9 @@
-export const findFirstAndLastSeed = (collatzArray) => {
-	const firstSeed = collatzArray[0].seed;
-	const lastSeed = collatzArray[collatzArray.length - 1].seed;
+export const findFirstAndLastSeed = async (seqObj) => {
+	const firstSeed = seqObj[0].seed;
+	const lastSeed = seqObj[seqObj.length - 1].seed;
 
-	return { firstSeed: firstSeed, lastSeed: lastSeed };
+	return {
+		firstSeed: firstSeed.toLocaleString(),
+		lastSeed: lastSeed.toLocaleString(),
+	};
 };

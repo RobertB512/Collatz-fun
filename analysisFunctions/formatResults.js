@@ -1,31 +1,35 @@
-import { formHailstoneOutputStr } from "./hailstoneData.js";
+// import { formHailstoneOutputStr } from "./hailstoneData.js";
+
+const formHailstoneOutputStr = (goal, startSeed, hailstone) => {
+	return `${goal}: seed of ${startSeed} | hailstone of ${hailstone}\n`;
+};
 
 export const formatResults = (resultsArray) => {
-	const firstSeed = `- First seed tested: ${resultsArray[0].firstSeed.toLocaleString()}\n`;
-	const lastSeed = `- Last seed tested: ${resultsArray[0].lastSeed.toLocaleString()}\n`;
+	const firstSeed = `- First seed tested: ${resultsArray[0].firstSeed}\n`;
+	const lastSeed = `- Last seed tested: ${resultsArray[0].lastSeed}\n`;
 	const largestHailstone = `- Largest hailstone: \nseed of ${resultsArray[18].seed} | hailstone of ${resultsArray[18].largestHailstone}\n`;
 	const longestHailstoneSeq = `- Longest hailstone sequence: \nseed of ${resultsArray[1].seed} | step count of ${resultsArray[1].longestHailstoneSeq}\n`;
-	const meanSeqLength = `- Mean sequence length (rounded): ${resultsArray[1].meanSeqLength}\n`;
-	const sdOfSeqLength = `- Standard deviation of sequence lengths: ${resultsArray[1].sdOfSeqLength}\n`;
+	const meanSeqLength = `- Mean sequence length: ${resultsArray[1].meanSeqLength}\n`;
+	const sdOfSeqLength = `- Standard deviation of sequence length: ${resultsArray[1].sdOfSeqLength}\n`;
 	const longestStraightDrop = `- Longest straight drop: \nseed of ${resultsArray[2].seed} | steps of ${resultsArray[2].dropSteps}\n\n`;
 	const firstToHitX = "First hailstone to hit:\n";
 	const firstToHit100 = formHailstoneOutputStr(
-		"100",
-		resultsArray[3].seed,
-		resultsArray[3].numberThatHit,
-	);
+    "100", 
+    resultsArray[3].seed, 
+    resultsArray[3].numberThatHit
+  );
 	const firstToHit500 = formHailstoneOutputStr(
 		"500",
 		resultsArray[4].seed,
 		resultsArray[4].numberThatHit,
-	);
+	);;
 	const firstToHit1Th = formHailstoneOutputStr(
 		"1Th",
 		resultsArray[5].seed,
 		resultsArray[5].numberThatHit,
 	);
 	const firstToHit5Th = formHailstoneOutputStr(
-		"5Th",
+		"5th",
 		resultsArray[6].seed,
 		resultsArray[6].numberThatHit,
 	);
@@ -123,5 +127,5 @@ export const formatResults = (resultsArray) => {
 		firstToHit1B,
 	];
 
-	return finalResults;
+	return finalResults.join("");
 };
