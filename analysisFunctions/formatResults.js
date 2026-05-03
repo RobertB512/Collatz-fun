@@ -1,18 +1,18 @@
 // import { formHailstoneOutputStr } from "./hailstoneData.js";
 
 const formHailstoneOutputStr = (goal, startSeed, hailstone) => {
-	return `${goal}: seed of ${startSeed} | hailstone of ${hailstone}\n`;
+	return `${goal}: \n\tseed: ${startSeed} \n\thailstone: ${hailstone}\n`;
 };
 
 export const formatResults = (resultsArray) => {
 	const firstSeed = `- First seed tested: ${resultsArray[0].firstSeed}\n`;
 	const lastSeed = `- Last seed tested: ${resultsArray[0].lastSeed}\n`;
-	const largestHailstone = `- Largest hailstone: \nseed of ${resultsArray[18].seed} | hailstone of ${resultsArray[18].largestHailstone}\n`;
-	const longestHailstoneSeq = `- Longest hailstone sequence: \nseed of ${resultsArray[1].seed} | step count of ${resultsArray[1].longestHailstoneSeq}\n`;
+	const largestHailstone = `- Largest hailstone: \n\tseed: ${resultsArray[18].seed} \n\thailstone: ${resultsArray[18].largestHailstone}\n`;
+	const longestHailstoneSeq = `- Longest hailstone sequence: \n\tseed: ${resultsArray[1].seed} \n\tstep count: ${resultsArray[1].longestHailstoneSeq}\n`;
 	const meanSeqLength = `- Mean sequence length: ${resultsArray[1].meanSeqLength}\n`;
 	const sdOfSeqLength = `- Standard deviation of sequence length: ${resultsArray[1].sdOfSeqLength}\n`;
-	const longestStraightDrop = `- Longest straight drop: \nseed of ${resultsArray[2].seed} | steps of ${resultsArray[2].dropSteps}\n\n`;
-	const firstToHitX = "First hailstone to hit:\n";
+	const longestStraightDrop = `- Longest straight drop: \n\tseed: ${resultsArray[2].seed} \n\tsteps: ${resultsArray[2].dropSteps}\n\n`;
+	const firstToHitX = "- First hailstone to hit:\n";
 	const firstToHit100 = formHailstoneOutputStr(
     "100", 
     resultsArray[3].seed, 
