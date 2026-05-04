@@ -20,7 +20,7 @@ const analyzeCollatzOutput = async () => {
 	console.time("timeProg");
 
 	const sourceFile = "dataOutput.ndjson";
-	const outputFile = "results.txt";
+	const outputFile = "./results.txt";
 	const data = await getFileContents(sourceFile);
 
 	const firstAndLastSeed = await findFirstAndLastSeed(data);
