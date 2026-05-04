@@ -1,7 +1,7 @@
 // NOTE: This program requires Node to be installed.
 
-const fs = require("fs");
-const { json } = require("stream/consumers");
+import fs from "node:fs";
+// const { json } = require("stream/consumers");
 
 const writeToFile = async (path, data) => {
 	try {
@@ -61,14 +61,14 @@ const generateCollatzSeq = async (startSeed, endSeed, file) => {
 };
 
 const prepSeqGeneration = async () => {
-	const outputFile = "collatzOutput.ndjson";
+	const outputFile = "dataOutput.ndjson";
   let startingSeed = (await findPrevSeed(outputFile)) + 1; // Starting number for Collatz sequence.
 
 	if (startingSeed == null) {
 		startingSeed = 1;
 	}
 
-	const numbersToAdd = 5000; // The number of Collatz sequences to add to the output file.
+	const numbersToAdd = 5; // The number of Collatz sequences to add to the output file.
 	const endingSeed = startingSeed + numbersToAdd - 1; // - 1 since otherwise one additional seq would be added, since
   // every run starts at last seed + 1, which would have not been included if it weren't for the - 1
 
