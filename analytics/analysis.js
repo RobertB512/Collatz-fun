@@ -4,6 +4,8 @@
 import fs from "node:fs";
 import readline from "node:readline";
 import { writeFile } from "node:fs/promises";
+import path from "node:path";
+
 
 // import modules
 import { getFileContents } from "./analysisFunctions/getFileContents.js";
@@ -20,7 +22,7 @@ const analyzeCollatzOutput = async () => {
 	console.time("timeProg");
 
 	const sourceFile = "dataOutput.ndjson";
-	const outputFile = "./results.txt";
+	const outputFile = "results.txt";
 	const data = await getFileContents(sourceFile);
 
 	const firstAndLastSeed = await findFirstAndLastSeed(data);
@@ -72,7 +74,7 @@ const analyzeCollatzOutput = async () => {
 	const formatedResults = formatResults(resultsArray);
 
 	try {
-		await writeFile(outputFile, formatedResults);
+		await writeFile(path.join("analytics", outputFile), formatedResults);
 		console.log("File written successfully");
 	} catch (err) {
 		console.error("Error writing file:", err);
