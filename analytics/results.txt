@@ -7,6 +7,7 @@
 	seed: 77,031 
 	step count: 350
 - Mean sequence length: 107.54
+- Meadian sequence length: 99.00
 - Standard deviation of sequence length: 51.37
 - Longest straight drop: 
 	seed: 65,536 

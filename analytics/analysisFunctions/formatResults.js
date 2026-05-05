@@ -10,6 +10,7 @@ export const formatResults = (resultsArray) => {
 	const largestHailstone = `- Largest hailstone: \n\tseed: ${resultsArray[18].seed} \n\thailstone: ${resultsArray[18].largestHailstone}\n`;
 	const longestHailstoneSeq = `- Longest hailstone sequence: \n\tseed: ${resultsArray[1].seed} \n\tstep count: ${resultsArray[1].longestHailstoneSeq}\n`;
 	const meanSeqLength = `- Mean sequence length: ${resultsArray[1].meanSeqLength}\n`;
+  const medianSeqLength = `- Meadian sequence length: ${resultsArray[1].medianSeqLength}\n`
 	const sdOfSeqLength = `- Standard deviation of sequence length: ${resultsArray[1].sdOfSeqLength}\n`;
 	const longestStraightDrop = `- Longest straight drop: \n\tseed: ${resultsArray[2].seed} \n\tsteps: ${resultsArray[2].dropSteps}\n\n`;
 	const firstToHitX = "- First hailstone to hit:\n";
@@ -105,6 +106,7 @@ export const formatResults = (resultsArray) => {
 		largestHailstone,
 		longestHailstoneSeq,
 		meanSeqLength,
+    medianSeqLength,
 		sdOfSeqLength,
 		longestStraightDrop,
 		firstToHitX,

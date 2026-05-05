@@ -1,3 +1,7 @@
+const sortNumsAsc = (a, b) => {
+	return a > b ? 1 : b > a ? -1 : 0;
+};
+
 export const findLargestHailstone = (seqInfo) => {
 	let largestHailstone = 0;
 	let hailstoneSeed = 0;
@@ -28,9 +32,7 @@ export const findFirstToBreakX = (seqInfo, hitPoint) => {
 	const errorMsg = `error or number to hit ${numberToHit} is TBD.`;
 
 	for (const seq of seqInfo) {
-		const hailstoneNumber = seq.hailstoneSeq.find(
-			(val) => val >= numberToHit,
-		);
+		const hailstoneNumber = seq.hailstoneSeq.find((val) => val >= numberToHit);
 
 		if (hailstoneNumber !== undefined) {
 			return {
@@ -52,6 +54,8 @@ export const analyzeHailstoneSeq = async (seqInfo) => {
 	let squaredDiff = 0;
 	let variance = 0;
 	let sdOfSeqLength = 0; // the standard deviation of all seq lengths
+	let medSeqLength = 0;
+	let index = 0;
 
 	// find longest seq
 	for (let seq of seqInfo) {
@@ -63,17 +67,30 @@ export const analyzeHailstoneSeq = async (seqInfo) => {
 
 	// find mean seq length
 	for (let seq of seqInfo) {
-    let steps = seq.stepCount;
+		let steps = seq.stepCount;
 		lengthContainer.push(steps);
 		seqTotals += steps;
 	}
 	meanSeqLength = (seqTotals / lengthContainer.length).toFixed(2);
 
+	// find median seq length
+  console.log(lengthContainer.sort(sortNumsAsc));
+	lengthContainer.sort(sortNumsAsc);
+	if (lengthContainer.length % 2 == 0) {
+		index = lengthContainer.length / 2;
+		medSeqLength = (
+			(lengthContainer[index] + lengthContainer[index - 1]) /
+			2
+		).toFixed(2);
+	} else if (lengthContainer.length % 2 == 1) {
+		index = math.floor(lengthContainer.length / 2);
+		medSeqLength = lengthContainer[index];
+	}
+
 	// find squared difference of seq length
 	for (let num of lengthContainer) {
 		squaredDiff += (num - meanSeqLength) ** 2;
 	}
-
 
 	// find variance of seq length
 	variance = squaredDiff / lengthContainer.length;
@@ -86,6 +103,7 @@ export const analyzeHailstoneSeq = async (seqInfo) => {
 		longestHailstoneSeq: mostSteps.toLocaleString(),
 		meanSeqLength: meanSeqLength.toLocaleString(),
 		sdOfSeqLength: sdOfSeqLength.toLocaleString(),
+		medianSeqLength: medSeqLength.toLocaleString(),
 	};
 };
 
