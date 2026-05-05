@@ -1,7 +1,3 @@
-const sortNumsAsc = (a, b) => {
-	return a > b ? 1 : b > a ? -1 : 0;
-};
-
 export const findLargestHailstone = (seqInfo) => {
 	let largestHailstone = 0;
 	let hailstoneSeed = 0;
@@ -74,8 +70,7 @@ export const analyzeHailstoneSeq = async (seqInfo) => {
 	meanSeqLength = (seqTotals / lengthContainer.length).toFixed(2);
 
 	// find median seq length
-  console.log(lengthContainer.sort(sortNumsAsc));
-	lengthContainer.sort(sortNumsAsc);
+	lengthContainer.sort((a, b) => a - b);
 	if (lengthContainer.length % 2 == 0) {
 		index = lengthContainer.length / 2;
 		medSeqLength = (
