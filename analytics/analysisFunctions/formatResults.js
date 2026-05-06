@@ -16,10 +16,20 @@ export const formatResults = (resultsArray) => {
 	const categoryStats = "\n----- Stats Data -----\n";
 	const meanOfFst100Seq = `- Mean of first 100 step counts: ${resultsArray[1].meanOfFst100}\n`;
 	const medOfFst100Seq = `- Median of first 100 step counts: ${resultsArray[1].medOfFst100}\n`;
-	const sdOffst100Seq = `- Standard deviation of first 100 step counts ${resultsArray[1].sdOfFst100}\n`;
+	const sdOffst100Seq = `- Standard deviation of first 100 step counts ${resultsArray[1].sdOfFst100}\n\n`;
+
+	const meanOfFst1ThSeq = `- Mean of first 1,000 step counts: ${resultsArray[1].meanOfFst1Th}\n`;
+	const medOfFst1ThSeq = `- Median of first 1,000 step counts: ${resultsArray[1].medOfFst1Th}\n`;
+	const sdOffst1ThSeq = `- Standard deviation of first 1,000 step counts ${resultsArray[1].sdOfFst1Th}\n\n`;
+
+	const meanOfFst10ThSeq = `- Mean of first 10,000 step counts: ${resultsArray[1].meanOfFst10Th}\n`;
+	const medOfFst10ThSeq = `- Median of first 10,000 step counts: ${resultsArray[1].medOfFst10Th}\n`;
+	const sdOffst10ThSeq = `- Standard deviation of first 10,000 step counts ${resultsArray[1].sdOfFst10Th}\n\n`;
+
 	const meanSeqLength = `- Mean of all step counts: ${resultsArray[1].meanSeqLength}\n`;
 	const medSeqLength = `- Meadian of all step counts: ${resultsArray[1].medSeqLength}\n`;
-	const sdOfSeqLength = `- Standard deviation of of all step counts: ${resultsArray[1].sdOfSeqLength}\n`;
+	const sdOfSeqLength = `- Standard deviation of of all step counts: ${resultsArray[1].sdOfSeqLength}\n\n`;
+
 	const longestStraightDrop = `- Longest straight drop: \n\tseed: ${resultsArray[2].seed} \n\tsteps: ${resultsArray[2].dropSteps}\n\n`;
 
 	// For hailstone mile markers
@@ -120,7 +130,13 @@ export const formatResults = (resultsArray) => {
 		categoryStats,
 		meanOfFst100Seq,
 		medOfFst100Seq,
-    sdOffst100Seq,
+		sdOffst100Seq,
+    meanOfFst1ThSeq,
+    medOfFst1ThSeq,
+    sdOffst1ThSeq,
+    meanOfFst10ThSeq,
+    medOfFst10ThSeq,
+    sdOffst10ThSeq,
 		meanSeqLength,
 		medSeqLength,
 		sdOfSeqLength,

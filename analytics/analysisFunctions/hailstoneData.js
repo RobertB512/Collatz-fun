@@ -1,6 +1,6 @@
 const findMedianLength = (arr) => {
 	let median = 0;
-  let index = 0;
+	let index = 0;
 
 	arr.sort((a, b) => a - b);
 	if (arr.length % 2 == 0) {
@@ -84,20 +84,32 @@ export const findFirstToBreakX = (seqInfo, hitPoint) => {
 
 export const analyzeHailstoneSeq = async (seqInfo) => {
 	// for function vars
-  let mostSteps = 0;
+	let mostSteps = 0;
 	let seed;
 	let lengthContainer = []; //contains the length of each seq
 	let fst100Seq = [];
+	let fst1ThSeq = [];
+	let fst10ThSeq = [];
 
-  // stats for all seqs
+	// stats for all seqs
 	let sdOfSeqLength = 0; // the standard deviation of all seq lengths
 	let meanSeqLength = 0;
 	let medSeqLength = 0;
 
-  // stats for first 100 seqs
+	// stats for first 100 seqs
 	let sdOfFst100 = 0;
 	let meanOfFst100 = 0;
 	let medOfFst100 = 0;
+
+	// stats for first 1,000 seqs
+	let sdOfFst1Th = 0;
+	let meanOfFst1Th = 0;
+	let medOfFst1Th = 0;
+
+	// stats for first 10,000 seqs
+	let sdOfFst10Th = 0;
+	let meanOfFst10Th = 0;
+	let medOfFst10Th = 0;
 
 	// find longest seq
 	for (let seq of seqInfo) {
@@ -113,17 +125,25 @@ export const analyzeHailstoneSeq = async (seqInfo) => {
 		lengthContainer.push(steps);
 	}
 	fst100Seq = lengthContainer.slice(0, 100);
+	fst1ThSeq = lengthContainer.slice(0, 1000);
+	fst10ThSeq = lengthContainer.slice(0, 10000);
 
 	meanSeqLength = findMeanLength(lengthContainer);
 	meanOfFst100 = findMeanLength(fst100Seq);
+	meanOfFst1Th = findMeanLength(fst1ThSeq);
+	meanOfFst10Th = findMeanLength(fst10ThSeq);
 
 	// find median seq length
 	medSeqLength = findMedianLength(lengthContainer);
 	medOfFst100 = findMedianLength(fst100Seq);
+	medOfFst1Th = findMedianLength(fst1ThSeq);
+	medOfFst10Th = findMedianLength(fst10ThSeq);
 
 	// Find standard deviation of seq length
 	sdOfSeqLength = findSdLength(lengthContainer, meanSeqLength);
 	sdOfFst100 = findSdLength(fst100Seq, meanOfFst100);
+	sdOfFst1Th = findSdLength(fst1ThSeq, meanOfFst1Th);
+	sdOfFst10Th = findSdLength(fst10ThSeq, meanOfFst10Th);
 
 	return {
 		seed: seed.toLocaleString(),
@@ -131,9 +151,15 @@ export const analyzeHailstoneSeq = async (seqInfo) => {
 		meanSeqLength: meanSeqLength.toLocaleString(),
 		medSeqLength: medSeqLength.toLocaleString(),
 		sdOfSeqLength: sdOfSeqLength.toLocaleString(),
-		meanOfFst100: meanOfFst100,
+		meanOfFst100: meanOfFst100.toLocaleString(),
 		medOfFst100: medOfFst100.toLocaleString(),
 		sdOfFst100: sdOfFst100.toLocaleString(),
+		meanOfFst1Th: meanOfFst1Th.toLocaleString(),
+		medOfFst1Th: medOfFst1Th.toLocaleString(),
+		sdOfFst1Th: sdOfFst1Th.toLocaleString(),
+		meanOfFst10Th: meanOfFst10Th.toLocaleString(),
+		medOfFst10Th: medOfFst10Th.toLocaleString(),
+		sdOfFst10Th: sdOfFst10Th.toLocaleString(),
 	};
 };
 
