@@ -1,3 +1,44 @@
+const findMedianLength = (arr) => {
+	let median = 0;
+  let index = 0;
+
+	arr.sort((a, b) => a - b);
+	if (arr.length % 2 == 0) {
+		index = arr.length / 2;
+		return (median = ((arr[index] + arr[index - 1]) / 2).toFixed(2));
+	} else if (arr.length % 2 == 1) {
+		index = math.floor(arr.length / 2);
+		return (median = arr[index]);
+	}
+};
+
+const findMeanLength = (arr) => {
+	let total = 0;
+
+	for (let x of arr) {
+		total += x;
+	}
+
+	return (total / arr.length).toFixed(2);
+};
+
+const findSdLength = (arr, mean) => {
+	let variance = 0;
+	let squaredDiff = 0;
+	let sdOfSeqLength = 0;
+
+	// find squared difference of seq length
+	for (let num of arr) {
+		squaredDiff += (num - mean) ** 2;
+	}
+
+	// find variance of seq length
+	variance = squaredDiff / arr.length;
+
+	// find the pop std of squared differences (variance)
+	return (sdOfSeqLength = Math.sqrt(variance).toFixed(2));
+};
+
 export const findLargestHailstone = (seqInfo) => {
 	let largestHailstone = 0;
 	let hailstoneSeed = 0;
@@ -42,16 +83,21 @@ export const findFirstToBreakX = (seqInfo, hitPoint) => {
 };
 
 export const analyzeHailstoneSeq = async (seqInfo) => {
-	let mostSteps = 0;
+	// for function vars
+  let mostSteps = 0;
 	let seed;
 	let lengthContainer = []; //contains the length of each seq
-	let meanSeqLength = 0;
-	let seqTotals = 0; // total of all seq lengths
-	let squaredDiff = 0;
-	let variance = 0;
+	let fst100Seq = [];
+
+  // stats for all seqs
 	let sdOfSeqLength = 0; // the standard deviation of all seq lengths
+	let meanSeqLength = 0;
 	let medSeqLength = 0;
-	let index = 0;
+
+  // stats for first 100 seqs
+	let sdOfFst100 = 0;
+	let meanOfFst100 = 0;
+	let medOfFst100 = 0;
 
 	// find longest seq
 	for (let seq of seqInfo) {
@@ -65,40 +111,29 @@ export const analyzeHailstoneSeq = async (seqInfo) => {
 	for (let seq of seqInfo) {
 		let steps = seq.stepCount;
 		lengthContainer.push(steps);
-		seqTotals += steps;
 	}
-	meanSeqLength = (seqTotals / lengthContainer.length).toFixed(2);
+	fst100Seq = lengthContainer.slice(0, 100);
+
+	meanSeqLength = findMeanLength(lengthContainer);
+	meanOfFst100 = findMeanLength(fst100Seq);
 
 	// find median seq length
-	lengthContainer.sort((a, b) => a - b);
-	if (lengthContainer.length % 2 == 0) {
-		index = lengthContainer.length / 2;
-		medSeqLength = (
-			(lengthContainer[index] + lengthContainer[index - 1]) /
-			2
-		).toFixed(2);
-	} else if (lengthContainer.length % 2 == 1) {
-		index = math.floor(lengthContainer.length / 2);
-		medSeqLength = lengthContainer[index];
-	}
+	medSeqLength = findMedianLength(lengthContainer);
+	medOfFst100 = findMedianLength(fst100Seq);
 
-	// find squared difference of seq length
-	for (let num of lengthContainer) {
-		squaredDiff += (num - meanSeqLength) ** 2;
-	}
-
-	// find variance of seq length
-	variance = squaredDiff / lengthContainer.length;
-
-	// find the pop std of squared differences (variance)
-	sdOfSeqLength = Math.sqrt(variance).toFixed(2);
+	// Find standard deviation of seq length
+	sdOfSeqLength = findSdLength(lengthContainer, meanSeqLength);
+	sdOfFst100 = findSdLength(fst100Seq, meanOfFst100);
 
 	return {
 		seed: seed.toLocaleString(),
 		longestHailstoneSeq: mostSteps.toLocaleString(),
 		meanSeqLength: meanSeqLength.toLocaleString(),
+		medSeqLength: medSeqLength.toLocaleString(),
 		sdOfSeqLength: sdOfSeqLength.toLocaleString(),
-		medianSeqLength: medSeqLength.toLocaleString(),
+		meanOfFst100: meanOfFst100,
+		medOfFst100: medOfFst100.toLocaleString(),
+		sdOfFst100: sdOfFst100.toLocaleString(),
 	};
 };
 

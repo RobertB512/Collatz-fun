@@ -6,20 +6,23 @@ const formHailstoneOutputStr = (goal, startSeed, hailstone) => {
 
 export const formatResults = (resultsArray) => {
 	// For general data
-  const categoryGeneral = "---- General Info -----\n";
+	const categoryGeneral = "---- General Info -----\n";
 	const firstSeed = `- First seed tested: ${resultsArray[0].firstSeed}\n`;
 	const lastSeed = `- Last seed tested: ${resultsArray[0].lastSeed}\n`;
 	const largestHailstone = `- Largest hailstone: \n\tseed: ${resultsArray[18].seed} \n\thailstone: ${resultsArray[18].largestHailstone}\n`;
 	const longestHailstoneSeq = `- Longest hailstone sequence: \n\tseed: ${resultsArray[1].seed} \n\tstep count: ${resultsArray[1].longestHailstoneSeq}\n`;
 
-  // For stats data
+	// For stats data
 	const categoryStats = "\n----- Stats Data -----\n";
-	const meanSeqLength = `- Mean sequence length: ${resultsArray[1].meanSeqLength}\n`;
-	const medianSeqLength = `- Meadian sequence length: ${resultsArray[1].medianSeqLength}\n`;
-	const sdOfSeqLength = `- Standard deviation of sequence length: ${resultsArray[1].sdOfSeqLength}\n`;
+	const meanOfFst100Seq = `- Mean of first 100 step counts: ${resultsArray[1].meanOfFst100}\n`;
+	const medOfFst100Seq = `- Median of first 100 step counts: ${resultsArray[1].medOfFst100}\n`;
+	const sdOffst100Seq = `- Standard deviation of first 100 step counts ${resultsArray[1].sdOfFst100}\n`;
+	const meanSeqLength = `- Mean of all step counts: ${resultsArray[1].meanSeqLength}\n`;
+	const medSeqLength = `- Meadian of all step counts: ${resultsArray[1].medSeqLength}\n`;
+	const sdOfSeqLength = `- Standard deviation of of all step counts: ${resultsArray[1].sdOfSeqLength}\n`;
 	const longestStraightDrop = `- Longest straight drop: \n\tseed: ${resultsArray[2].seed} \n\tsteps: ${resultsArray[2].dropSteps}\n\n`;
 
-  // For hailstone mile markers
+	// For hailstone mile markers
 	const categoryHailstoneGoals = "\n----- First Hailstone To Hit -----\n";
 	const firstToHit100 = formHailstoneOutputStr(
 		"100",
@@ -115,8 +118,11 @@ export const formatResults = (resultsArray) => {
 		longestHailstoneSeq,
 		longestStraightDrop,
 		categoryStats,
+		meanOfFst100Seq,
+		medOfFst100Seq,
+    sdOffst100Seq,
 		meanSeqLength,
-		medianSeqLength,
+		medSeqLength,
 		sdOfSeqLength,
 		categoryHailstoneGoals,
 		firstToHit100,

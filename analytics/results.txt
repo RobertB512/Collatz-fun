@@ -13,9 +13,12 @@
 
 
 ----- Stats Data -----
-- Mean sequence length: 107.54
-- Meadian sequence length: 99.00
-- Standard deviation of sequence length: 51.37
+- Mean of first 100 step counts: 31.45
+- Median of first 100 step counts: 19.00
+- Standard deviation of first 100 step counts 34.26
+- Mean of all step counts: 107.54
+- Meadian of all step counts: 99.00
+- Standard deviation of of all step counts: 51.37
 
 ----- First Hailstone To Hit -----
 100: 
