@@ -1,3 +1,4 @@
+---- General Info -----
 - First seed tested: 1
 - Last seed tested: 100,000
 - Largest hailstone: 
@@ -6,14 +7,17 @@
 - Longest hailstone sequence: 
 	seed: 77,031 
 	step count: 350
-- Mean sequence length: 107.54
-- Meadian sequence length: 99.00
-- Standard deviation of sequence length: 51.37
 - Longest straight drop: 
 	seed: 65,536 
 	steps: 16
 
-- First hailstone to hit:
+
+----- Stats Data -----
+- Mean sequence length: 107.54
+- Meadian sequence length: 99.00
+- Standard deviation of sequence length: 51.37
+
+----- First Hailstone To Hit -----
 100: 
 	seed: 15 
 	hailstone: 106

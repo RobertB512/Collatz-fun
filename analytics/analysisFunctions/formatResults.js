@@ -5,25 +5,32 @@ const formHailstoneOutputStr = (goal, startSeed, hailstone) => {
 };
 
 export const formatResults = (resultsArray) => {
+	// For general data
+  const categoryGeneral = "---- General Info -----\n";
 	const firstSeed = `- First seed tested: ${resultsArray[0].firstSeed}\n`;
 	const lastSeed = `- Last seed tested: ${resultsArray[0].lastSeed}\n`;
 	const largestHailstone = `- Largest hailstone: \n\tseed: ${resultsArray[18].seed} \n\thailstone: ${resultsArray[18].largestHailstone}\n`;
 	const longestHailstoneSeq = `- Longest hailstone sequence: \n\tseed: ${resultsArray[1].seed} \n\tstep count: ${resultsArray[1].longestHailstoneSeq}\n`;
+
+  // For stats data
+	const categoryStats = "\n----- Stats Data -----\n";
 	const meanSeqLength = `- Mean sequence length: ${resultsArray[1].meanSeqLength}\n`;
-  const medianSeqLength = `- Meadian sequence length: ${resultsArray[1].medianSeqLength}\n`
+	const medianSeqLength = `- Meadian sequence length: ${resultsArray[1].medianSeqLength}\n`;
 	const sdOfSeqLength = `- Standard deviation of sequence length: ${resultsArray[1].sdOfSeqLength}\n`;
 	const longestStraightDrop = `- Longest straight drop: \n\tseed: ${resultsArray[2].seed} \n\tsteps: ${resultsArray[2].dropSteps}\n\n`;
-	const firstToHitX = "- First hailstone to hit:\n";
+
+  // For hailstone mile markers
+	const categoryHailstoneGoals = "\n----- First Hailstone To Hit -----\n";
 	const firstToHit100 = formHailstoneOutputStr(
-    "100", 
-    resultsArray[3].seed, 
-    resultsArray[3].numberThatHit
-  );
+		"100",
+		resultsArray[3].seed,
+		resultsArray[3].numberThatHit,
+	);
 	const firstToHit500 = formHailstoneOutputStr(
 		"500",
 		resultsArray[4].seed,
 		resultsArray[4].numberThatHit,
-	);;
+	);
 	const firstToHit1Th = formHailstoneOutputStr(
 		"1Th",
 		resultsArray[5].seed,
@@ -101,15 +108,17 @@ export const formatResults = (resultsArray) => {
 	);
 
 	const finalResults = [
+		categoryGeneral,
 		firstSeed,
 		lastSeed,
 		largestHailstone,
 		longestHailstoneSeq,
-		meanSeqLength,
-    medianSeqLength,
-		sdOfSeqLength,
 		longestStraightDrop,
-		firstToHitX,
+		categoryStats,
+		meanSeqLength,
+		medianSeqLength,
+		sdOfSeqLength,
+		categoryHailstoneGoals,
 		firstToHit100,
 		firstToHit500,
 		firstToHit1Th,
