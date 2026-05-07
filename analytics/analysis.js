@@ -6,7 +6,6 @@ import readline from "node:readline";
 import { writeFile } from "node:fs/promises";
 import path from "node:path";
 
-
 // import modules
 import { getFileContents } from "./analysisFunctions/getFileContents.js";
 import { breakUpSeq } from "./analysisFunctions/breakUpSeq.js";
@@ -16,6 +15,7 @@ import { findFirstToBreakX } from "./analysisFunctions/hailstoneData.js";
 import { analyzeHailstoneSeq } from "./analysisFunctions/hailstoneData.js";
 import { findLongestStraightDrop } from "./analysisFunctions/hailstoneData.js";
 import { formatResults } from "./analysisFunctions/formatResults.js";
+import { freqDistFstDigit } from "./analysisFunctions/freqDistFstDigit.js";
 
 // base function
 const analyzeCollatzOutput = async () => {
@@ -29,6 +29,7 @@ const analyzeCollatzOutput = async () => {
 	const seqLengthStats = await analyzeHailstoneSeq(data);
 	const largestHailstone = findLargestHailstone(data);
 	const longestStraightDrop = findLongestStraightDrop(data);
+	const fstDigitDist = await freqDistFstDigit(data);
 	const firstToBreak100 = findFirstToBreakX(data, 100);
 	const firstToBreak500 = findFirstToBreakX(data, 500);
 	const firstToBreak1Th = findFirstToBreakX(data, 1_000);
@@ -69,6 +70,7 @@ const analyzeCollatzOutput = async () => {
 		largestHailstone,
 		firstToBreak500M,
 		firstToBreak1B,
+    fstDigitDist
 	];
 
 	const formatedResults = formatResults(resultsArray);

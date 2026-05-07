@@ -12,6 +12,10 @@ export const formatResults = (resultsArray) => {
 	const largestHailstone = `- Largest hailstone: \n\tseed: ${resultsArray[18].seed} \n\thailstone: ${resultsArray[18].largestHailstone}\n`;
 	const longestHailstoneSeq = `- Longest hailstone sequence: \n\tseed: ${resultsArray[1].seed} \n\tstep count: ${resultsArray[1].longestHailstoneSeq}\n`;
 
+	// Frequency distribution of first digit
+	const categoryFreqFstDigit = "\n----- Frequency distribution of each hailstone's first digit -----\n";
+	const freqDistOfFstDigit = `Ones: ${resultsArray[21].ones}, Twos: ${resultsArray[21].twos}, Threes: ${resultsArray[21].threes}\nFours: ${resultsArray[21].fours}, Fives: ${resultsArray[21].fives}, Sixes: ${resultsArray[21].sixes}\nSevens: ${resultsArray[21].sevens}, Eights: ${resultsArray[21].eights}, Nines: ${resultsArray[21].nines}\n`;
+
 	// For stats data
 	const categoryStats = "\n----- Stats Data -----\n";
 	const meanOfFst100Seq = `- Mean of first 100 step counts: ${resultsArray[1].meanOfFst100}\n`;
@@ -131,15 +135,17 @@ export const formatResults = (resultsArray) => {
 		meanOfFst100Seq,
 		medOfFst100Seq,
 		sdOffst100Seq,
-    meanOfFst1ThSeq,
-    medOfFst1ThSeq,
-    sdOffst1ThSeq,
-    meanOfFst10ThSeq,
-    medOfFst10ThSeq,
-    sdOffst10ThSeq,
+		meanOfFst1ThSeq,
+		medOfFst1ThSeq,
+		sdOffst1ThSeq,
+		meanOfFst10ThSeq,
+		medOfFst10ThSeq,
+		sdOffst10ThSeq,
 		meanSeqLength,
 		medSeqLength,
 		sdOfSeqLength,
+    categoryFreqFstDigit,
+    freqDistOfFstDigit,
 		categoryHailstoneGoals,
 		firstToHit100,
 		firstToHit500,

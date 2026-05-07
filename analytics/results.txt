@@ -30,6 +30,11 @@
 - Standard deviation of of all step counts: 51.37
 
 
+----- Frequency distribution of each hailstone's first digit -----
+Ones: 3,222,573, Twos: 1,871,454, Threes: 1,263,028
+Fours: 1,232,475, Fives: 851,900, Sixes: 607,650
+Sevens: 608,994, Eights: 585,262, Nines: 510,507
+
 ----- First Hailstone To Hit -----
 100: 
 	seed: 15 
