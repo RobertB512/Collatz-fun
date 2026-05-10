@@ -7,7 +7,7 @@ const findMedianLength = (arr) => {
 		index = arr.length / 2;
 		return (median = ((arr[index] + arr[index - 1]) / 2).toFixed(2));
 	} else if (arr.length % 2 == 1) {
-		index = math.floor(arr.length / 2);
+		index = Math.floor(arr.length / 2);
 		return (median = arr[index]);
 	}
 };
