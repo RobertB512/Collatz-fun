@@ -10,10 +10,10 @@ import path from "node:path";
 import { getFileContents } from "./analysisFunctions/getFileContents.js";
 import { breakUpSeq } from "./analysisFunctions/breakUpSeq.js";
 import { findFirstAndLastSeed } from "./analysisFunctions/findFirstAndLastSeed.js";
-import { findLargestHailstone } from "./analysisFunctions/hailstoneData.js";
-import { findFirstToBreakX } from "./analysisFunctions/hailstoneData.js";
-import { analyzeHailstoneSeq } from "./analysisFunctions/hailstoneData.js";
-import { findLongestStraightDrop } from "./analysisFunctions/hailstoneData.js";
+import { findLargestHailstone } from "./analysisFunctions/seqLengthData.js";
+import { findFirstToBreakX } from "./analysisFunctions/seqLengthData.js";
+import { analyzeHailstoneSeq } from "./analysisFunctions/seqLengthData.js";
+import { findLongestStraightDrop } from "./analysisFunctions/seqLengthData.js";
 import { formatResults } from "./analysisFunctions/formatResults.js";
 import { freqDistFstDigit } from "./analysisFunctions/freqDistFstDigit.js";
 
