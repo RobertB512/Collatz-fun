@@ -28,7 +28,7 @@ export const formatResults = (resultsArray) => {
 	const categoryStats = "----- Stats Data -----\n";
 	const meanOfFst100Seq = `- Mean of first 100 step counts: ${resultsArray[1].meanOfFst100}\n`;
 	const medOfFst100Seq = `- Median of first 100 step counts: ${resultsArray[1].medOfFst100}\n`;
-	const sdOffst100Seq = `- Standard deviation of first 100 step counts ${resultsArray[1].sdOfFst100}`;
+	const sdOffst100Seq = `- Standard deviation of first 100 step counts ${resultsArray[1].sdOfFst100}\n\n`;
 
 	const meanOfFst1ThSeq = `- Mean of first 1,000 step counts: ${resultsArray[1].meanOfFst1Th}\n`;
 	const medOfFst1ThSeq = `- Median of first 1,000 step counts: ${resultsArray[1].medOfFst1Th}\n`;

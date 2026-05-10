@@ -18,7 +18,9 @@
 ----- Stats Data -----
 - Mean of first 100 step counts: 31.45
 - Median of first 100 step counts: 19.00
-- Standard deviation of first 100 step counts 34.26- Mean of first 1,000 step counts: 59.55
+- Standard deviation of first 100 step counts 34.26
+
+- Mean of first 1,000 step counts: 59.55
 - Median of first 1,000 step counts: 43.00
 - Standard deviation of first 1,000 step counts 40.85
 
