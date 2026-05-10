@@ -5,6 +5,9 @@ const formHailstoneOutputStr = (goal, startSeed, hailstone) => {
 };
 
 export const formatResults = (resultsArray) => {
+	// general
+	const sectionBreak = "\n\n\n";
+
 	// For general data
 	const categoryGeneral = "---- General Info -----\n";
 	const firstSeed = `- First seed tested: ${resultsArray[0].firstSeed}\n`;
@@ -14,18 +17,18 @@ export const formatResults = (resultsArray) => {
 	const longestStraightDrop = `- Longest straight drop: \n\tseed: ${resultsArray[2].seed} \n\tsteps: ${resultsArray[2].dropSteps}\n`;
 	const evensAndOdds = "- Even and odd hailstone counts\n";
 	const repeatedCounts = `\tevens (repeated): ${resultsArray[21].evenHailstonesRepeated} | odds (repeated): ${resultsArray[21].oddHailstonesRepeated}\n`;
-	const noneRepeatedCounts = `\tevens (no repeats): ${resultsArray[21].evenHailstonesNoRepeat} | odds (no repeats): ${resultsArray[21].oddHailstonesNoRepeat}\n\n`;
+	const noneRepeatedCounts = `\tevens (no repeats): ${resultsArray[21].evenHailstonesNoRepeat} | odds (no repeats): ${resultsArray[21].oddHailstonesNoRepeat}`;
 
 	// Frequency distribution of first digit
 	const categoryFreqFstDigit =
-		"\n----- Frequency distribution of each hailstone's first digit -----\n";
-	const freqDistOfFstDigit = `Ones: ${resultsArray[21].ones}, Twos: ${resultsArray[21].twos}, Threes: ${resultsArray[21].threes}\nFours: ${resultsArray[21].fours}, Fives: ${resultsArray[21].fives}, Sixes: ${resultsArray[21].sixes}\nSevens: ${resultsArray[21].sevens}, Eights: ${resultsArray[21].eights}, Nines: ${resultsArray[21].nines}\n`;
+		"----- Frequency Distribution Of Each Hailstone's First Digit -----\n";
+	const freqDistOfFstDigit = `Ones: ${resultsArray[21].ones}, Twos: ${resultsArray[21].twos}, Threes: ${resultsArray[21].threes}\nFours: ${resultsArray[21].fours}, Fives: ${resultsArray[21].fives}, Sixes: ${resultsArray[21].sixes}\nSevens: ${resultsArray[21].sevens}, Eights: ${resultsArray[21].eights}, Nines: ${resultsArray[21].nines}`;
 
 	// For stats data
-	const categoryStats = "\n----- Stats Data -----\n";
+	const categoryStats = "----- Stats Data -----\n";
 	const meanOfFst100Seq = `- Mean of first 100 step counts: ${resultsArray[1].meanOfFst100}\n`;
 	const medOfFst100Seq = `- Median of first 100 step counts: ${resultsArray[1].medOfFst100}\n`;
-	const sdOffst100Seq = `- Standard deviation of first 100 step counts ${resultsArray[1].sdOfFst100}\n\n`;
+	const sdOffst100Seq = `- Standard deviation of first 100 step counts ${resultsArray[1].sdOfFst100}`;
 
 	const meanOfFst1ThSeq = `- Mean of first 1,000 step counts: ${resultsArray[1].meanOfFst1Th}\n`;
 	const medOfFst1ThSeq = `- Median of first 1,000 step counts: ${resultsArray[1].medOfFst1Th}\n`;
@@ -37,10 +40,10 @@ export const formatResults = (resultsArray) => {
 
 	const meanSeqLength = `- Mean of all step counts: ${resultsArray[1].meanSeqLength}\n`;
 	const medSeqLength = `- Meadian of all step counts: ${resultsArray[1].medSeqLength}\n`;
-	const sdOfSeqLength = `- Standard deviation of of all step counts: ${resultsArray[1].sdOfSeqLength}\n\n`;
+	const sdOfSeqLength = `- Standard deviation of of all step counts: ${resultsArray[1].sdOfSeqLength}`;
 
 	// For hailstone mile markers
-	const categoryHailstoneGoals = "\n----- First Hailstone To Hit -----\n";
+	const categoryHailstoneGoals = "----- First Hailstone To Hit -----\n";
 	const firstToHit100 = formHailstoneOutputStr(
 		"100",
 		resultsArray[3].seed,
@@ -137,6 +140,7 @@ export const formatResults = (resultsArray) => {
 		evensAndOdds,
 		repeatedCounts,
 		noneRepeatedCounts,
+    sectionBreak,
 		categoryStats,
 		meanOfFst100Seq,
 		medOfFst100Seq,
@@ -150,8 +154,10 @@ export const formatResults = (resultsArray) => {
 		meanSeqLength,
 		medSeqLength,
 		sdOfSeqLength,
+    sectionBreak,
 		categoryFreqFstDigit,
 		freqDistOfFstDigit,
+    sectionBreak,
 		categoryHailstoneGoals,
 		firstToHit100,
 		firstToHit500,
