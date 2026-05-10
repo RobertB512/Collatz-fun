@@ -37,5 +37,5 @@ If you want to learn more, go on YouTube or Google and search "Collatz conjectur
 3. Place the contents in the same location on your computer, anywhere you want.
 4. In your terminal, navigate to the location where you put the contents.
 5. If you want to run the main file (which has the conjecture logic), run **node collatz.js**.
-6. If you want to run the code that analyzes the conjecture, run **node analytics/analysis.js**.
+6. If you want to run the code that analyzes the conjecture, run **node analytics/analyze.js**.
 7. If you want to see the list of numbers tested with the conjecture, or the results from the analysis, then open **dataOutput.ndjson** or **results.txt** respectively, in the text editor of your choice. **Note:** I would recommend a code editor for reading the output files, dataOutput.ndjson is too big for Microsoft Word.
