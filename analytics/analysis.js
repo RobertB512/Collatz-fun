@@ -3,8 +3,9 @@
 // imports packages
 import fs from "node:fs";
 import readline from "node:readline";
-import { writeFile } from "node:fs/promises";
 import path from "node:path";
+import { writeFile } from "node:fs/promises";
+const __dirname = import.meta.dirname;
 
 // import modules
 import { getFileContents } from "./analysisFunctions/getFileContents.js";
@@ -21,8 +22,8 @@ import { analyzeEachHailstone } from "./analysisFunctions/hailstoneData.js";
 const analyzeCollatzOutput = async () => {
 	console.time("timeProg");
 
-	const sourceFile = "dataOutput.ndjson";
-	const outputFile = "results.txt";
+	const sourceFile = path.join(__dirname, "..", "dataOutput.ndjson");
+	const outputFilePath = path.join(__dirname, "results.txt");
 	const data = await getFileContents(sourceFile);
 
 	const firstAndLastSeed = await findFirstAndLastSeed(data);
@@ -76,7 +77,7 @@ const analyzeCollatzOutput = async () => {
 	const formatedResults = formatResults(resultsArray);
 
 	try {
-		await writeFile(path.join("analytics", outputFile), formatedResults);
+		await writeFile((outputFilePath), formatedResults);
 		console.log("File written successfully");
 	} catch (err) {
 		console.error("Error writing file:", err);
