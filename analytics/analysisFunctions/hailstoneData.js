@@ -1,4 +1,5 @@
-export const freqDistFstDigit = async (data) => {
+export const analyzeEachHailstone = async (data) => {
+	// for frequency distribution
 	let onesCount = 0;
 	let twosCount = 0;
 	let threesCount = 0;
@@ -10,8 +11,25 @@ export const freqDistFstDigit = async (data) => {
 	let ninesCount = 0;
 	let temp = 0;
 
+	// for even and odd counts
+	let evenHailstonesRepeated = 0;
+	let oddHailstonesRepeated = 0;
+	let evenHailstonesNoRepeat = 0;
+	let oddHailstonesNoRepeat = 0;
+	let hailstonesSeen = new Set();
+
 	data.forEach((seq) => {
 		seq.hailstoneSeq.forEach((hailstone) => {
+			if (!hailstonesSeen.has(hailstone)) {
+				hailstonesSeen.add(hailstone);
+				hailstone % 2 == 0 ? evenHailstonesNoRepeat++ : oddHailstonesNoRepeat++;
+				hailstone % 2 == 0 ? evenHailstonesRepeated++ : oddHailstonesRepeated++;
+			} else {
+				hailstone % 2 == 0 ? evenHailstonesRepeated++ : oddHailstonesRepeated++;
+			}
+
+			if (hailstone % 2 == 0) {
+			}
 			temp = hailstone;
 
 			while (temp >= 10) {
@@ -24,28 +42,28 @@ export const freqDistFstDigit = async (data) => {
 					break;
 				case 2:
 					twosCount++;
-          break;
+					break;
 				case 3:
 					threesCount++;
-          break;
+					break;
 				case 4:
 					foursCount++;
-          break;
+					break;
 				case 5:
 					fivesCount++;
-          break;
+					break;
 				case 6:
 					sixesCount++;
-          break;
+					break;
 				case 7:
 					sevensCount++;
-          break;
+					break;
 				case 8:
 					eightsCount++;
-          break;
+					break;
 				case 9:
 					ninesCount++;
-          break;
+					break;
 			}
 		});
 	});
@@ -60,5 +78,9 @@ export const freqDistFstDigit = async (data) => {
 		sevens: sevensCount.toLocaleString(),
 		eights: eightsCount.toLocaleString(),
 		nines: ninesCount.toLocaleString(),
+		evenHailstonesRepeated: evenHailstonesRepeated.toLocaleString(),
+		oddHailstonesRepeated: oddHailstonesRepeated.toLocaleString(),
+		evenHailstonesNoRepeat: evenHailstonesNoRepeat.toLocaleString(),
+		oddHailstonesNoRepeat: oddHailstonesNoRepeat.toLocaleString(),
 	};
 };

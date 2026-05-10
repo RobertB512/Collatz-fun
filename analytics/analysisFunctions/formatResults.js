@@ -11,9 +11,14 @@ export const formatResults = (resultsArray) => {
 	const lastSeed = `- Last seed tested: ${resultsArray[0].lastSeed}\n`;
 	const largestHailstone = `- Largest hailstone: \n\tseed: ${resultsArray[18].seed} \n\thailstone: ${resultsArray[18].largestHailstone}\n`;
 	const longestHailstoneSeq = `- Longest hailstone sequence: \n\tseed: ${resultsArray[1].seed} \n\tstep count: ${resultsArray[1].longestHailstoneSeq}\n`;
+	const longestStraightDrop = `- Longest straight drop: \n\tseed: ${resultsArray[2].seed} \n\tsteps: ${resultsArray[2].dropSteps}\n`;
+	const evensAndOdds = "- Even and odd hailstone counts\n";
+	const repeatedCounts = `\tevens (repeated): ${resultsArray[21].evenHailstonesRepeated} | odds (repeated): ${resultsArray[21].oddHailstonesRepeated}\n`;
+	const noneRepeatedCounts = `\tevens (no repeats): ${resultsArray[21].evenHailstonesNoRepeat} | odds (no repeats): ${resultsArray[21].oddHailstonesNoRepeat}\n\n`;
 
 	// Frequency distribution of first digit
-	const categoryFreqFstDigit = "\n----- Frequency distribution of each hailstone's first digit -----\n";
+	const categoryFreqFstDigit =
+		"\n----- Frequency distribution of each hailstone's first digit -----\n";
 	const freqDistOfFstDigit = `Ones: ${resultsArray[21].ones}, Twos: ${resultsArray[21].twos}, Threes: ${resultsArray[21].threes}\nFours: ${resultsArray[21].fours}, Fives: ${resultsArray[21].fives}, Sixes: ${resultsArray[21].sixes}\nSevens: ${resultsArray[21].sevens}, Eights: ${resultsArray[21].eights}, Nines: ${resultsArray[21].nines}\n`;
 
 	// For stats data
@@ -33,8 +38,6 @@ export const formatResults = (resultsArray) => {
 	const meanSeqLength = `- Mean of all step counts: ${resultsArray[1].meanSeqLength}\n`;
 	const medSeqLength = `- Meadian of all step counts: ${resultsArray[1].medSeqLength}\n`;
 	const sdOfSeqLength = `- Standard deviation of of all step counts: ${resultsArray[1].sdOfSeqLength}\n\n`;
-
-	const longestStraightDrop = `- Longest straight drop: \n\tseed: ${resultsArray[2].seed} \n\tsteps: ${resultsArray[2].dropSteps}\n\n`;
 
 	// For hailstone mile markers
 	const categoryHailstoneGoals = "\n----- First Hailstone To Hit -----\n";
@@ -131,6 +134,9 @@ export const formatResults = (resultsArray) => {
 		largestHailstone,
 		longestHailstoneSeq,
 		longestStraightDrop,
+		evensAndOdds,
+		repeatedCounts,
+		noneRepeatedCounts,
 		categoryStats,
 		meanOfFst100Seq,
 		medOfFst100Seq,
@@ -144,8 +150,8 @@ export const formatResults = (resultsArray) => {
 		meanSeqLength,
 		medSeqLength,
 		sdOfSeqLength,
-    categoryFreqFstDigit,
-    freqDistOfFstDigit,
+		categoryFreqFstDigit,
+		freqDistOfFstDigit,
 		categoryHailstoneGoals,
 		firstToHit100,
 		firstToHit500,
