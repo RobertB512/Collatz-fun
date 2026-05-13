@@ -15,7 +15,8 @@ export const formatResults = (resultsArray) => {
 	const largestHailstone = `- Largest hailstone: \n\tseed: ${resultsArray[18].seed} \n\thailstone: ${resultsArray[18].largestHailstone}\n`;
 	const longestHailstoneSeq = `- Longest hailstone sequence: \n\tseed: ${resultsArray[1].seed} \n\tstep count: ${resultsArray[1].longestHailstoneSeq}\n`;
 	const longestStraightDrop = `- Longest straight drop: \n\tseed: ${resultsArray[2].seed} \n\tsteps: ${resultsArray[2].dropSteps}\n`;
-	const evensAndOdds = "- Even and odd hailstone counts\n";
+	const largestPropDiff = `- Largest proportional difference between a seed and its highest hailstone: \n\tportion: ${resultsArray[22].proportion} \n\tseed: ${resultsArray[22].seed} \n\thailstone: ${resultsArray[22].hailstone}\n`;
+	const evensAndOdds = "- Even and odd hailstone counts:\n";
 	const repeatedCounts = `\tevens (repeated): ${resultsArray[21].evenHailstonesRepeated} | odds (repeated): ${resultsArray[21].oddHailstonesRepeated}\n`;
 	const noneRepeatedCounts = `\tevens (no repeats): ${resultsArray[21].evenHailstonesNoRepeat} | odds (no repeats): ${resultsArray[21].oddHailstonesNoRepeat}`;
 
@@ -137,10 +138,11 @@ export const formatResults = (resultsArray) => {
 		largestHailstone,
 		longestHailstoneSeq,
 		longestStraightDrop,
+    largestPropDiff,
 		evensAndOdds,
 		repeatedCounts,
 		noneRepeatedCounts,
-    sectionBreak,
+		sectionBreak,
 		categoryStats,
 		meanOfFst100Seq,
 		medOfFst100Seq,
@@ -154,10 +156,10 @@ export const formatResults = (resultsArray) => {
 		meanSeqLength,
 		medSeqLength,
 		sdOfSeqLength,
-    sectionBreak,
+		sectionBreak,
 		categoryFreqFstDigit,
 		freqDistOfFstDigit,
-    sectionBreak,
+		sectionBreak,
 		categoryHailstoneGoals,
 		firstToHit100,
 		firstToHit500,

@@ -10,7 +10,11 @@
 - Longest straight drop: 
 	seed: 65,536 
 	steps: 16
-- Even and odd hailstone counts
+- Largest proportional difference between a seed and its highest hailstone: 
+	portion: 20,224.08 
+	seed: 77,671 
+	hailstone: 1,570,824,736
+- Even and odd hailstone counts:
 	evens (repeated): 7,138,950 | odds (repeated): 3,614,893
 	evens (no repeats): 129,375 | odds (no repeats): 68,836
 

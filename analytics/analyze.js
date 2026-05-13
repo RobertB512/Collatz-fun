@@ -17,6 +17,7 @@ import { analyzeHailstoneSeq } from "./analysisFunctions/seqLengthData.js";
 import { findLongestStraightDrop } from "./analysisFunctions/seqLengthData.js";
 import { formatResults } from "./analysisFunctions/formatResults.js";
 import { analyzeEachHailstone } from "./analysisFunctions/hailstoneData.js";
+import { findLargestPropDiff } from "./analysisFunctions/seqLengthData.js";
 
 // base function
 const analyzeCollatzOutput = async () => {
@@ -30,6 +31,7 @@ const analyzeCollatzOutput = async () => {
 	const seqLengthStats = await analyzeHailstoneSeq(data);
 	const largestHailstone = findLargestHailstone(data);
 	const longestStraightDrop = findLongestStraightDrop(data);
+	const largestPropDiff = findLargestPropDiff(data);
 	const hailstoneData = await analyzeEachHailstone(data);
 	const firstToBreak100 = findFirstToBreakX(data, 100);
 	const firstToBreak500 = findFirstToBreakX(data, 500);
@@ -72,12 +74,13 @@ const analyzeCollatzOutput = async () => {
 		firstToBreak500M,
 		firstToBreak1B,
 		hailstoneData,
+		largestPropDiff,
 	];
 
 	const formatedResults = formatResults(resultsArray);
 
 	try {
-		await writeFile((outputFilePath), formatedResults);
+		await writeFile(outputFilePath, formatedResults);
 		console.log("File written successfully");
 	} catch (err) {
 		console.error("Error writing file:", err);

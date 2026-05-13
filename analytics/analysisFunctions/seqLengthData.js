@@ -192,3 +192,26 @@ export const findLongestStraightDrop = (seqInfo) => {
 		dropSteps: longestDrop.toLocaleString(),
 	};
 };
+
+export const findLargestPropDiff = (arr) => {
+	let currSeed = 0;
+	let currHailstone = 0;
+	let prevProPortion = 0;
+	let currProportion = 0;
+
+	arr.forEach((seq) => {
+		prevProPortion = seq.highestHailstone / seq.seed;
+
+		if (prevProPortion > currProportion) {
+			currProportion = prevProPortion;
+			currSeed = seq.seed;
+			currHailstone = seq.highestHailstone;
+		}
+	});
+
+	return {
+		proportion: Number(currProportion.toFixed(2)).toLocaleString(),
+		seed: currSeed.toLocaleString(),
+		hailstone: currHailstone.toLocaleString(),
+	};
+};
