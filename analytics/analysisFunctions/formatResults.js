@@ -17,13 +17,13 @@ export const formatResults = (resultsArray) => {
 	const longestStraightDrop = `- Longest straight drop: \n\tseed: ${resultsArray[2].seed} \n\tsteps: ${resultsArray[2].dropSteps}\n`;
 	const largestPropDiff = `- Largest proportional difference between a seed and its highest hailstone: \n\tportion: ${resultsArray[22].proportion} \n\tseed: ${resultsArray[22].seed} \n\thailstone: ${resultsArray[22].hailstone}\n`;
 	const evensAndOdds = "- Even and odd hailstone counts:\n";
-	const totalCounts = `\tevens (all): ${resultsArray[21].evenHailstonesAll} | odds (all): ${resultsArray[21].oddHailstonesAll}\n`;
-	const uniqueCounts = `\tevens (unique): ${resultsArray[21].evenHailstonesUnique} | odds (unique): ${resultsArray[21].oddHailstonesUnique}`;
+	const totalCounts = `\tevens (all): ${resultsArray[21].evenHailstoneCount[0]} | odds (all): ${resultsArray[21].oddHailstoneCount[0]}\n`;
+	const uniqueCounts = `\tevens (unique): ${resultsArray[21].evenHailstoneCount[1]} | odds (unique): ${resultsArray[21].oddHailstoneCount[1]}`;
 
 	// Frequency distribution of first digit
 	const categoryFreqFstDigit =
 		"----- Frequency Distribution Of Each Hailstone's First Digit -----\n";
-	const freqDistOfFstDigit = `Ones: ${resultsArray[21].ones}, Twos: ${resultsArray[21].twos}, Threes: ${resultsArray[21].threes}\nFours: ${resultsArray[21].fours}, Fives: ${resultsArray[21].fives}, Sixes: ${resultsArray[21].sixes}\nSevens: ${resultsArray[21].sevens}, Eights: ${resultsArray[21].eights}, Nines: ${resultsArray[21].nines}`;
+	const freqDistOfFstDigit = `Ones (all | unique): ${resultsArray[21].ones[0]} | ${resultsArray[21].ones[1]} \nTwos (all | unique): ${resultsArray[21].twos[0]} | ${resultsArray[21].twos[1]} \nThrees (all | unique): ${resultsArray[21].threes[0]} | ${resultsArray[21].threes[1]} \nFours (all | unique): ${resultsArray[21].fours[0]} | ${resultsArray[21].fours[1]} \nFives (all | unique): ${resultsArray[21].fives[0]} | ${resultsArray[21].fives[1]} \nSixes (all | unique): ${resultsArray[21].sixes[0]} | ${resultsArray[21].sixes[1]} \nSevens (all | unique): ${resultsArray[21].sevens[0]} | ${resultsArray[21].sevens[1]} \nEights (all | unique): ${resultsArray[21].eights[0]} | ${resultsArray[21].eights[1]} \nNines (all | unique): ${resultsArray[21].nines[0]} | ${resultsArray[21].nines[1]}`;
 
 	// For stats data
 	const categoryStats = "----- Stats Data -----\n";

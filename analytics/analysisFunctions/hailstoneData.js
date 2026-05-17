@@ -1,97 +1,98 @@
 export const analyzeEachHailstone = async (data) => {
-	// for frequency distribution
-	let onesCount = 0;
-  let uniqueOnesCount = 0;
-	let twosCount = 0;
-  let uniqueTwosCount = 0;
-	let threesCount = 0;
-  let uniqueThreesCount = 0;
-	let foursCount = 0;
-  let uniqueFoursCount = 0;
-	let fivesCount = 0;
-  let uniqueFivesCount = 0;
-	let sixesCount = 0;
-  let uniqueSixesCount = 0;
-	let sevensCount = 0;
-  let uniqueSevensCount = 0;
-	let eightsCount = 0;
-  let uniqueEightsCount = 0;
-	let ninesCount = 0;
-  let uniqueNinesCount = 0;
+	let leadingDigitCount = [
+		{ all: 0, unique: 0 },
+		{ all: 0, unique: 0 },
+		{ all: 0, unique: 0 },
+		{ all: 0, unique: 0 },
+		{ all: 0, unique: 0 },
+		{ all: 0, unique: 0 },
+		{ all: 0, unique: 0 },
+		{ all: 0, unique: 0 },
+		{ all: 0, unique: 0 },
+	];
 	let temp = 0;
 
-  // multi purpose
-  	let hailstonesSeen = new Set();
+	// multi purpose
+	let hailstonesSeen = new Set();
 
 	// for even and odd counts
-	let evenHailstonesAll = 0;
-	let oddHailstonesAll = 0;
-	let evenHailstonesUnique = 0;
-	let oddHailstonesUnique = 0;
+	let evenAndOddCount = [
+		{ all: 0, unique: 0 }, // evens
+		{ all: 0, unique: 0 }, // odds
+	];
 
+	// the main logic
 	data.forEach((seq) => {
 		seq.hailstoneSeq.forEach((hailstone) => {
-			if (!hailstonesSeen.has(hailstone)) {
-				hailstonesSeen.add(hailstone);
-				hailstone % 2 == 0 ? evenHailstonesUnique++ : oddHailstonesUnique++;
-				hailstone % 2 == 0 ? evenHailstonesAll++ : oddHailstonesAll++;
-			} else {
-				hailstone % 2 == 0 ? evenHailstonesAll++ : oddHailstonesAll++;
-			}
-
-			// if (hailstone % 2 == 0) {
-			// }
 			temp = hailstone;
 
 			while (temp >= 10) {
 				temp = Math.floor(temp / 10);
 			}
 
-			switch (temp) {
-				case 1:
-					onesCount++;
-					break;
-				case 2:
-					twosCount++;
-					break;
-				case 3:
-					threesCount++;
-					break;
-				case 4:
-					foursCount++;
-					break;
-				case 5:
-					fivesCount++;
-					break;
-				case 6:
-					sixesCount++;
-					break;
-				case 7:
-					sevensCount++;
-					break;
-				case 8:
-					eightsCount++;
-					break;
-				case 9:
-					ninesCount++;
-					break;
+			if (!hailstonesSeen.has(hailstone)) {
+				hailstonesSeen.add(hailstone);
+				leadingDigitCount[temp - 1].all++;
+				leadingDigitCount[temp - 1].unique++;
+				hailstone % 2 == 0
+					? evenAndOddCount[0].unique++
+					: evenAndOddCount[1].unique++;
+				hailstone % 2 == 0
+					? evenAndOddCount[0].all++
+					: evenAndOddCount[1].all++;
+			} else {
+				leadingDigitCount[temp - 1].all++;
+				hailstone % 2 == 0
+					? evenAndOddCount[0].all++
+					: evenAndOddCount[1].all++;
 			}
 		});
 	});
 
 	return {
-		ones: onesCount.toLocaleString(),
-		twos: twosCount.toLocaleString(),
-		threes: threesCount.toLocaleString(),
-		fours: foursCount.toLocaleString(),
-		fives: fivesCount.toLocaleString(),
-		sixes: sixesCount.toLocaleString(),
-		sevens: sevensCount.toLocaleString(),
-		eights: eightsCount.toLocaleString(),
-		nines: ninesCount.toLocaleString(),
-		evenHailstonesAll: evenHailstonesAll.toLocaleString(),
-		oddHailstonesAll: oddHailstonesAll.toLocaleString(),
-		evenHailstonesUnique: evenHailstonesUnique.toLocaleString(),
-		oddHailstonesUnique: oddHailstonesUnique.toLocaleString(),
+		ones: [
+			leadingDigitCount[0].all.toLocaleString(),
+			leadingDigitCount[0].unique.toLocaleString(),
+		],
+		twos: [
+			leadingDigitCount[1].all.toLocaleString(),
+			leadingDigitCount[1].unique.toLocaleString(),
+		],
+		threes: [
+			leadingDigitCount[2].all.toLocaleString(),
+			leadingDigitCount[2].unique.toLocaleString(),
+		],
+		fours: [
+			leadingDigitCount[3].all.toLocaleString(),
+			leadingDigitCount[3].unique.toLocaleString(),
+		],
+		fives: [
+			leadingDigitCount[4].all.toLocaleString(),
+			leadingDigitCount[4].unique.toLocaleString(),
+		],
+		sixes: [
+			leadingDigitCount[5].all.toLocaleString(),
+			leadingDigitCount[5].unique.toLocaleString(),
+		],
+		sevens: [
+			leadingDigitCount[6].all.toLocaleString(),
+			leadingDigitCount[6].unique.toLocaleString(),
+		],
+		eights: [
+			leadingDigitCount[7].all.toLocaleString(),
+			leadingDigitCount[7].unique.toLocaleString(),
+		],
+		nines: [
+			leadingDigitCount[8].all.toLocaleString(),
+			leadingDigitCount[8].unique.toLocaleString(),
+		],
+		evenHailstoneCount: [
+			evenAndOddCount[0].all.toLocaleString(),
+			evenAndOddCount[0].unique.toLocaleString(),
+		],
+		oddHailstoneCount: [
+			evenAndOddCount[1].all.toLocaleString(),
+			evenAndOddCount[1].unique.toLocaleString(),
+		],
 	};
 };
