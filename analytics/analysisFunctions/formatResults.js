@@ -17,8 +17,8 @@ export const formatResults = (resultsArray) => {
 	const longestStraightDrop = `- Longest straight drop: \n\tseed: ${resultsArray[2].seed} \n\tsteps: ${resultsArray[2].dropSteps}\n`;
 	const largestPropDiff = `- Largest proportional difference between a seed and its highest hailstone: \n\tportion: ${resultsArray[22].proportion} \n\tseed: ${resultsArray[22].seed} \n\thailstone: ${resultsArray[22].hailstone}\n`;
 	const evensAndOdds = "- Even and odd hailstone counts:\n";
-	const repeatedCounts = `\tevens (repeated): ${resultsArray[21].evenHailstonesRepeated} | odds (repeated): ${resultsArray[21].oddHailstonesRepeated}\n`;
-	const noneRepeatedCounts = `\tevens (no repeats): ${resultsArray[21].evenHailstonesNoRepeat} | odds (no repeats): ${resultsArray[21].oddHailstonesNoRepeat}`;
+	const totalCounts = `\tevens (all): ${resultsArray[21].evenHailstonesAll} | odds (all): ${resultsArray[21].oddHailstonesAll}\n`;
+	const uniqueCounts = `\tevens (unique): ${resultsArray[21].evenHailstonesUnique} | odds (unique): ${resultsArray[21].oddHailstonesUnique}`;
 
 	// Frequency distribution of first digit
 	const categoryFreqFstDigit =
@@ -140,8 +140,8 @@ export const formatResults = (resultsArray) => {
 		longestStraightDrop,
     largestPropDiff,
 		evensAndOdds,
-		repeatedCounts,
-		noneRepeatedCounts,
+		totalCounts,
+		uniqueCounts,
 		sectionBreak,
 		categoryStats,
 		meanOfFst100Seq,

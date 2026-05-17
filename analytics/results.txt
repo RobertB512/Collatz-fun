@@ -15,8 +15,8 @@
 	seed: 77,671 
 	hailstone: 1,570,824,736
 - Even and odd hailstone counts:
-	evens (repeated): 7,138,950 | odds (repeated): 3,614,893
-	evens (no repeats): 129,375 | odds (no repeats): 68,836
+	evens (all): 7,138,950 | odds (all): 3,614,893
+	evens (unique): 129,375 | odds (unique): 68,836
 
 
 ----- Stats Data -----
