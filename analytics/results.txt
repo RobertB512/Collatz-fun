@@ -38,15 +38,15 @@
 
 
 ----- Frequency Distribution Of Each Hailstone's First Digit -----
-Ones (all | unique): 3,222,573 | 62,487 
-Twos (all | unique): 1,871,454 | 39,447 
-Threes (all | unique): 1,263,028 | 24,177 
-Fours (all | unique): 1,232,475 | 19,721 
-Fives (all | unique): 851,900 | 12,898 
-Sixes (all | unique): 607,650 | 11,784 
-Sevens (all | unique): 608,994 | 10,073 
-Eights (all | unique): 585,262 | 8,999 
-Nines (all | unique): 510,507 | 8,625
+Ones (all | unique): 3,222,573 (29.97%) | 62,487 (31.53%) 
+Twos (all | unique): 1,871,454 (17.40%) | 39,447 (19.90%) 
+Threes (all | unique): 1,263,028 (11.74%) | 24,177 (12.20%) 
+Fours (all | unique): 1,232,475 (11.46%) | 19,721 (9.95%) 
+Fives (all | unique): 851,900 (7.92%) | 12,898 (6.51%) 
+Sixes (all | unique): 607,650 (5.65%) | 11,784 (5.95%) 
+Sevens (all | unique): 608,994 (5.66%) | 10,073 (5.08%) 
+Eights (all | unique): 585,262 (5.44%) | 8,999 (4.54%) 
+Nines (all | unique): 510,507 (4.75%) | 8,625 (4.35%)
 
 
 ----- First Hailstone To Hit -----
