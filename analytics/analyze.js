@@ -82,11 +82,13 @@ const analyzeCollatzOutput = async () => {
 	try {
 		await writeFile(outputFilePath, formatedResults);
 		console.log("File written successfully");
+    console.timeEnd("timeProg");
 	} catch (err) {
 		console.error("Error writing file:", err);
+    console.timeEnd("timeProg");
 	}
 
-	console.timeEnd("timeProg");
+	
 };
 
 analyzeCollatzOutput();
