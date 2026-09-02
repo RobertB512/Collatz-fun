@@ -1,105 +1,88 @@
----- General Info -----
-- First seed tested: 1
-- Last seed tested: 100,000
-- Largest hailstone: 
-	seed: 77,671 
-	hailstone: 1,570,824,736
-- Longest hailstone sequence: 
-	seed: 77,031 
-	step count: 350
-- Longest straight drop: 
-	seed: 65,536 
-	steps: 16
-- Largest proportional difference between a seed and its highest hailstone: 
-	portion: 20,224.08 
-	seed: 77,671 
-	hailstone: 1,570,824,736
-- Even and odd hailstone counts:
-	evens (all): 7,138,950 | (unique): 129,375
-	odds (all): 3,614,893 | (unique): 68,836
+===============
+General Info
+===============
+
+First Seed Tested:   1
+Last Seed Tested:    100,000
 
 
------ Benford's Law Data -----
-- Ones (all | unique): 3,222,573 (29.97%) | 62,487 (31.53%)
-- Twos (all | unique): 1,871,454 (17.40%) | 39,447 (19.90%)
-- Threes (all | unique): 1,263,028 (11.74%) | 24,177 (12.20%)
-- Fours (all | unique): 1,232,475 (11.46%) | 19,721 (9.95%)
-- Fives (all | unique): 851,900 (7.92%) | 12,898 (6.51%)
-- Sixes (all | unique): 607,650 (5.65%) | 11,784 (5.95%)
-- Sevens (all | unique): 608,994 (5.66%) | 10,073 (5.08%)
-- Eights (all | unique): 585,262 (5.44%) | 8,999 (4.54%)
-- Nines (all | unique): 510,507 (4.75%) | 8,625 (4.35%)
+Largest Hailstone:
+Seed:           77,671
+Hailstone:      1,570,824,736
 
 
------ Stats Data -----
-Mean, median, and sd of:
-- first 100 step counts: 
-	mean: 31.45 
-	median: 19.00 
-	sd: 34.26
-- first 1,000 step counts: 
-	mean: 59.55 
-	median: 43.00 
-	sd: 40.85
-- first 10,000 step counts: 
-	mean: 84.97 
-	median: 73.00 
-	sd: 46.59
-- all step counts: 
-	mean: 107.54 
-	median: 99.00 
-	sd: 51.37
+Longest Hailstone Sequence:
+Seed:           77,031
+Step Count:     350
 
 
------ First Hailstone To Hit -----
-- 100: 
-	seed: 15 
-	hailstone: 106
-- 500: 
-	seed: 27 
-	hailstone: 700
-- 1Th: 
-	seed: 27 
-	hailstone: 1,186
-- 5Th: 
-	seed: 27 
-	hailstone: 7,288
-- 10Th: 
-	seed: 255 
-	hailstone: 13,120
-- 25Th: 
-	seed: 447 
-	hailstone: 26,242
-- 50Th: 
-	seed: 703 
-	hailstone: 68,524
-- 100Th: 
-	seed: 703 
-	hailstone: 148,444
-- 500Th: 
-	seed: 1,819 
-	hailstone: 504,466
-- 1M: 
-	seed: 1,819 
-	hailstone: 1,276,936
-- 5M: 
-	seed: 4,255 
-	hailstone: 6,053,452
-- 10M: 
-	seed: 9,663 
-	hailstone: 12,050,854
-- 25M: 
-	seed: 9,663 
-	hailstone: 27,114,424
-- 50M: 
-	seed: 20,895 
-	hailstone: 50,143,264
-- 100M: 
-	seed: 26,623 
-	hailstone: 106,358,020
-- 500M: 
-	seed: 60,975 
-	hailstone: 593,279,152
-- 1B: 
-	seed: 77,671 
-	hailstone: 1,047,216,490
+Longest Straight Drop:
+Seed:           65,536
+Steps:          16
+
+
+Largest Proportional Difference Between A Seed And Its Highest Hailstone:
+Proportion:     20,224.08
+Seed:           77,671
+Hailstone:      1,570,824,736
+
+
+Even And Odd Hailstone Counts
+Type       All             Unique    
+-------------------------------------------
+Evens      7,138,950       129,375
+Odds       3,614,893       68,836
+
+
+=====================
+Benford's Law Data
+=====================
+
+Leading Digit        All             All %      Unique     Unique %
+---------------------------------------------------------------------------
+Ones                 3,222,573       29.97      62,487     31.53
+Twos                 1,871,454       17.40      39,447     19.90
+Threes               1,263,028       11.74      24,177     12.20
+Fours                1,232,475       11.46      19,721     9.95
+Fives                851,900         7.92       12,898     6.51
+Sixes                607,650         5.65       11,784     5.95
+Sevens               608,994         5.66       10,073     5.08
+Eights               585,262         5.44       8,999      4.54
+Nines                510,507         4.75       8,625      4.35
+
+
+===================
+Step Count Stats
+===================
+
+Step Count      Mean       Median     SD        
+------------------------------------------------
+100             31.45      19.00      34.26     
+1,000           59.55      43.00      40.85     
+10,000          84.97      73.00      46.59     
+All             107.54     99.00      51.37     
+
+
+=====================================
+First Hailstone To Hit Milestones
+=====================================
+
+Goal                 Seed                 Hailstone
+----------------------------------------------------------
+100                  15                   106
+500                  27                   700
+1,000                27                   1,186
+5,000                27                   7,288
+10,000               255                  13,120
+25,000               447                  26,242
+50,000               703                  68,524
+100,000              703                  148,444
+500,000              1,819                504,466
+1,000,000            1,819                1,276,936
+5,000,000            4,255                6,053,452
+10,000,000           9,663                12,050,854
+25,000,000           9,663                27,114,424
+50,000,000           20,895               50,143,264
+100,000,000          26,623               106,358,020
+500,000,000          60,975               593,279,152
+1,000,000,000        77,671               1,047,216,490

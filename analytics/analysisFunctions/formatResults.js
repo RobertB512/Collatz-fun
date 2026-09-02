@@ -1,7 +1,7 @@
 // import { formHailstoneOutputStr } from "./hailstoneData.js";
 
 const formHailstoneOutputStr = (goal, startSeed, hailstone) => {
-	return `- ${goal}: \n\tseed: ${startSeed} \n\thailstone: ${hailstone}`;
+	return `${goal.padEnd(20)} ${startSeed.padEnd(20)} ${hailstone}`;
 };
 
 const formatBenfordsData = (
@@ -11,11 +11,11 @@ const formatBenfordsData = (
 	uniqueCount,
 	uniqueFreq,
 ) => {
-	return `- ${leadingDigit} (all | unique): ${totalCount} (${totalFreq}%) | ${uniqueCount} (${uniqueFreq}%)`;
+	return `${leadingDigit.padEnd(20)} ${totalCount.padEnd(15)} ${totalFreq.padEnd(10)} ${uniqueCount.padEnd(10)} ${uniqueFreq}`;
 };
 
 const formatStatsData = (numOfStepCounts, mean, median, sd) => {
-	return `- ${numOfStepCounts} step counts: \n\tmean: ${mean} \n\tmedian: ${median} \n\tsd: ${sd}`;
+	return `${numOfStepCounts.padEnd(15)} ${mean.padEnd(10)} ${median.padEnd(10)} ${sd.padEnd(10)}`;
 };
 
 export const formatResults = (resultsArray) => {
@@ -28,20 +28,37 @@ export const formatResults = (resultsArray) => {
 
 	// containers for results
 	generalInfo = [
-		"---- General Info -----",
-		`- First seed tested: ${resultsArray[0].firstSeed}`,
-		`- Last seed tested: ${resultsArray[0].lastSeed}`,
-		`- Largest hailstone: \n\tseed: ${resultsArray[18].seed} \n\thailstone: ${resultsArray[18].largestHailstone}`,
-		`- Longest hailstone sequence: \n\tseed: ${resultsArray[1].seed} \n\tstep count: ${resultsArray[1].longestHailstoneSeq}`,
-		`- Longest straight drop: \n\tseed: ${resultsArray[2].seed} \n\tsteps: ${resultsArray[2].dropSteps}`,
-		`- Largest proportional difference between a seed and its highest hailstone: \n\tportion: ${resultsArray[22].proportion} \n\tseed: ${resultsArray[22].seed} \n\thailstone: ${resultsArray[22].hailstone}`,
-		"- Even and odd hailstone counts:",
-		`\tevens (all): ${resultsArray[21].evenHailstoneCount[0]} | (unique): ${resultsArray[21].evenHailstoneCount[1]}`,
-		`\todds (all): ${resultsArray[21].oddHailstoneCount[0]} | (unique): ${resultsArray[21].oddHailstoneCount[1]}`,
+		"===============",
+		"General Info",
+		"===============\n",
+		`${"First Seed Tested:".padEnd(20)} ${resultsArray[0].firstSeed}`,
+		`${"Last Seed Tested:".padEnd(20)} ${resultsArray[0].lastSeed}\n\n`,
+		`Largest Hailstone:`,
+		`${"Seed:".padEnd(15)} ${resultsArray[18].seed}`,
+		`${"Hailstone:".padEnd(15)} ${resultsArray[18].largestHailstone}\n\n`,
+		`Longest Hailstone Sequence:`,
+		`${"Seed:".padEnd(15)} ${resultsArray[1].seed}`,
+		`${"Step Count:".padEnd(15)} ${resultsArray[1].longestHailstoneSeq}\n\n`,
+		`Longest Straight Drop:`,
+		`${"Seed:".padEnd(15)} ${resultsArray[2].seed}`,
+		`${"Steps:".padEnd(15)} ${resultsArray[2].dropSteps}\n\n`,
+		`Largest Proportional Difference Between A Seed And Its Highest Hailstone:`,
+		`${"Proportion:".padEnd(15)} ${resultsArray[22].proportion}`,
+		`${"Seed:".padEnd(15)} ${resultsArray[22].seed}`,
+		`${"Hailstone:".padEnd(15)} ${resultsArray[22].hailstone}\n\n`,
+		"Even And Odd Hailstone Counts",
+		`${"Type".padEnd(10)} ${"All".padEnd(15)} ${"Unique".padEnd(10)}`,
+		"-------------------------------------------",
+		`${"Evens".padEnd(10)} ${resultsArray[21].evenHailstoneCount[0].padEnd(15)} ${resultsArray[21].evenHailstoneCount[1]}`,
+		`${"Odds".padEnd(10)} ${resultsArray[21].oddHailstoneCount[0].padEnd(15)} ${resultsArray[21].oddHailstoneCount[1]}`,
 	].join("\n");
 
 	benfordsData = [
-		"----- Benford's Law Data -----",
+		"=====================",
+		"Benford's Law Data",
+		"=====================\n",
+		`${"Leading Digit".padEnd(20)} ${"All".padEnd(15)} ${"All %".padEnd(10)} ${"Unique".padEnd(10)} ${"Unique %"}`,
+		"---------------------------------------------------------------------------",
 		formatBenfordsData(
 			"Ones",
 			resultsArray[21].ones[0],
@@ -108,28 +125,31 @@ export const formatResults = (resultsArray) => {
 	].join("\n");
 
 	hailstoneStats = [
-		"----- Stats Data -----",
-		"Mean, median, and sd of:",
-		formatStatsData(
-			"first 100",
+		"===================",
+		"Step Count Stats",
+		"===================\n",
+    `${"Step Count".padEnd(15)} ${"Mean".padEnd(10)} ${"Median".padEnd(10)} ${"SD".padEnd(10)}`,
+    "------------------------------------------------",
+    formatStatsData(
+			"100",
 			resultsArray[1].meanOfFst100,
 			resultsArray[1].medOfFst100,
 			resultsArray[1].sdOfFst100,
 		),
 		formatStatsData(
-			"first 1,000",
+			"1,000",
 			resultsArray[1].meanOfFst1Th,
 			resultsArray[1].medOfFst1Th,
 			resultsArray[1].sdOfFst1Th,
 		),
 		formatStatsData(
-			"first 10,000",
+			"10,000",
 			resultsArray[1].meanOfFst10Th,
 			resultsArray[1].medOfFst10Th,
 			resultsArray[1].sdOfFst10Th,
 		),
 		formatStatsData(
-			"all",
+			"All",
 			resultsArray[1].meanSeqLength,
 			resultsArray[1].medSeqLength,
 			resultsArray[1].sdOfSeqLength,
@@ -137,7 +157,11 @@ export const formatResults = (resultsArray) => {
 	].join("\n");
 
 	hailstoneMilestones = [
-		"----- First Hailstone To Hit -----",
+		"=====================================",
+		"First Hailstone To Hit Milestones",
+		"=====================================\n",
+		`${"Goal".padEnd(20)} ${"Seed".padEnd(20)} Hailstone`,
+    "----------------------------------------------------------",
 		formHailstoneOutputStr(
 			"100",
 			resultsArray[3].seed,
@@ -149,77 +173,77 @@ export const formatResults = (resultsArray) => {
 			resultsArray[4].numberThatHit,
 		),
 		formHailstoneOutputStr(
-			"1Th",
+			"1,000",
 			resultsArray[5].seed,
 			resultsArray[5].numberThatHit,
 		),
 		formHailstoneOutputStr(
-			"5Th",
+			"5,000",
 			resultsArray[6].seed,
 			resultsArray[6].numberThatHit,
 		),
 		formHailstoneOutputStr(
-			"10Th",
+			"10,000",
 			resultsArray[7].seed,
 			resultsArray[7].numberThatHit,
 		),
 		formHailstoneOutputStr(
-			"25Th",
+			"25,000",
 			resultsArray[8].seed,
 			resultsArray[8].numberThatHit,
 		),
 		formHailstoneOutputStr(
-			"50Th",
+			"50,000",
 			resultsArray[9].seed,
 			resultsArray[9].numberThatHit,
 		),
 		formHailstoneOutputStr(
-			"100Th",
+			"100,000",
 			resultsArray[10].seed,
 			resultsArray[10].numberThatHit,
 		),
 		formHailstoneOutputStr(
-			"500Th",
+			"500,000",
 			resultsArray[11].seed,
 			resultsArray[11].numberThatHit,
 		),
 		formHailstoneOutputStr(
-			"1M",
+			"1,000,000",
 			resultsArray[12].seed,
 			resultsArray[12].numberThatHit,
 		),
 		formHailstoneOutputStr(
-			"5M",
+			"5,000,000",
 			resultsArray[13].seed,
 			resultsArray[13].numberThatHit,
 		),
 		formHailstoneOutputStr(
-			"10M",
+			"10,000,000",
 			resultsArray[14].seed,
 			resultsArray[14].numberThatHit,
 		),
 		formHailstoneOutputStr(
-			"25M",
+			"25,000,000",
 			resultsArray[15].seed,
 			resultsArray[15].numberThatHit,
 		),
 		formHailstoneOutputStr(
-			"50M",
+			"50,000,000",
 			resultsArray[16].seed,
 			resultsArray[16].numberThatHit,
 		),
 		formHailstoneOutputStr(
-			"100M",
+			"100,000,000",
 			resultsArray[17].seed,
 			resultsArray[17].numberThatHit,
 		),
 		formHailstoneOutputStr(
-			"500M",
+			"500,000,000",
 			resultsArray[19].seed,
 			resultsArray[19].numberThatHit,
 		),
 		formHailstoneOutputStr(
-			"1B",
+			"1,000,000,000",
 			resultsArray[20].seed,
 			resultsArray[20].numberThatHit,
 		),
