@@ -11,7 +11,7 @@ const formatBenfordsData = (
 	uniqueCount,
 	uniqueFreq,
 ) => {
-	return `${leadingDigit.padEnd(20)} ${totalCount.padEnd(15)} ${totalFreq.padEnd(10)} ${uniqueCount.padEnd(10)} ${uniqueFreq}`;
+	return `${leadingDigit.padEnd(20)} ${totalCount.padEnd(15)} ${totalFreq} ${"%".padEnd(10)} ${uniqueCount.padEnd(10)} ${uniqueFreq} %`;
 };
 
 const formatStatsData = (numOfStepCounts, mean, median, sd) => {
@@ -41,9 +41,9 @@ export const formatResults = (resultsArray) => {
 		`${"Step Count:".padEnd(15)} ${resultsArray[1].longestHailstoneSeq}\n\n`,
 		`Longest Straight Drop:`,
 		`${"Seed:".padEnd(15)} ${resultsArray[2].seed}`,
-		`${"Steps:".padEnd(15)} ${resultsArray[2].dropSteps}\n\n`,
-		`Largest Proportional Difference Between A Seed And Its Highest Hailstone:`,
-		`${"Proportion:".padEnd(15)} ${resultsArray[22].proportion}`,
+		`${"Step Count:".padEnd(15)} ${resultsArray[2].dropSteps}\n\n`,
+		`Largest Difference Between A Seed And Its Highest Hailstone:`,
+		`${"Difference:".padEnd(15)} ${resultsArray[22].difference} %`,
 		`${"Seed:".padEnd(15)} ${resultsArray[22].seed}`,
 		`${"Hailstone:".padEnd(15)} ${resultsArray[22].hailstone}\n\n`,
 		"Even And Odd Hailstone Counts",

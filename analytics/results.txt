@@ -18,11 +18,11 @@ Step Count:     350
 
 Longest Straight Drop:
 Seed:           65,536
-Steps:          16
+Step Count:     16
 
 
-Largest Proportional Difference Between A Seed And Its Highest Hailstone:
-Proportion:     20,224.08
+Largest Difference Between A Seed And Its Highest Hailstone:
+Difference:     2,022,308 %
 Seed:           77,671
 Hailstone:      1,570,824,736
 
@@ -40,15 +40,15 @@ Benford's Law Data
 
 Leading Digit        All             All %      Unique     Unique %
 ---------------------------------------------------------------------------
-Ones                 3,222,573       29.97      62,487     31.53
-Twos                 1,871,454       17.40      39,447     19.90
-Threes               1,263,028       11.74      24,177     12.20
-Fours                1,232,475       11.46      19,721     9.95
-Fives                851,900         7.92       12,898     6.51
-Sixes                607,650         5.65       11,784     5.95
-Sevens               608,994         5.66       10,073     5.08
-Eights               585,262         5.44       8,999      4.54
-Nines                510,507         4.75       8,625      4.35
+Ones                 3,222,573       29.97 %          62,487     31.53 %
+Twos                 1,871,454       17.40 %          39,447     19.90 %
+Threes               1,263,028       11.74 %          24,177     12.20 %
+Fours                1,232,475       11.46 %          19,721     9.95 %
+Fives                851,900         7.92 %          12,898     6.51 %
+Sixes                607,650         5.65 %          11,784     5.95 %
+Sevens               608,994         5.66 %          10,073     5.08 %
+Eights               585,262         5.44 %          8,999      4.54 %
+Nines                510,507         4.75 %          8,625      4.35 %
 
 
 ===================

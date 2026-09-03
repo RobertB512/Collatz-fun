@@ -193,24 +193,24 @@ export const findLongestStraightDrop = (seqInfo) => {
 	};
 };
 
-export const findLargestPropDiff = (arr) => {
+export const findLargestDiff = (arr) => {
 	let currSeed = 0;
 	let currHailstone = 0;
-	let prevProPortion = 0;
-	let currProportion = 0;
+  let currDiff = 0;
+	let largestDiff = 0;
 
 	arr.forEach((seq) => {
-		prevProPortion = seq.highestHailstone / seq.seed;
+		currDiff = ((seq.highestHailstone - seq.seed) / seq.seed) * 100;
 
-		if (prevProPortion > currProportion) {
-			currProportion = prevProPortion;
+		if (currDiff > largestDiff) {
+			largestDiff = currDiff;
 			currSeed = seq.seed;
 			currHailstone = seq.highestHailstone;
 		}
 	});
 
 	return {
-		proportion: Number(currProportion.toFixed(2)).toLocaleString(),
+		difference: Math.floor(largestDiff).toLocaleString(),
 		seed: currSeed.toLocaleString(),
 		hailstone: currHailstone.toLocaleString(),
 	};
