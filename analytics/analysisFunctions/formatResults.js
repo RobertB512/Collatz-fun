@@ -125,9 +125,9 @@ export const formatResults = (resultsArray) => {
 	].join("\n");
 
 	hailstoneStats = [
-		"===================",
-		"Step Count Stats",
-		"===================\n",
+		"================================",
+		"Stats Of First X Step Counts",
+		"================================\n",
     `${"Step Count".padEnd(15)} ${"Mean".padEnd(10)} ${"Median".padEnd(10)} ${"SD".padEnd(10)}`,
     "------------------------------------------------",
     formatStatsData(
