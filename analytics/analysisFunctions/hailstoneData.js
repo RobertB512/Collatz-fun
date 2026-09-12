@@ -39,18 +39,21 @@ export const analyzeEachHailstone = async (data) => {
 				leadingDigitCount[temp - 1].unique++;
         totalHailstones++;
         totalUniqueHailstones++;
-				hailstone % 2 == 0
-					? evenAndOddCount.evens.unique++
-					: evenAndOddCount.odds.unique++;
-				hailstone % 2 == 0
-					? evenAndOddCount.evens.all++
-					: evenAndOddCount.odds.all++;
+        if (hailstone % 2 == 0) {
+          evenAndOddCount.evens.unique++
+          evenAndOddCount.evens.all++
+        } else {
+          evenAndOddCount.odds.unique++;
+          evenAndOddCount.odds.all++;
+        }
 			} else {
 				leadingDigitCount[temp - 1].all++;
         totalHailstones++;
-				hailstone % 2 == 0
-					? evenAndOddCount.evens.all++
-					: evenAndOddCount.odds.all++;
+        if (hailstone % 2 == 0) {
+          evenAndOddCount.evens.all++
+        } else {
+          evenAndOddCount.odds.all++;
+        }
 			}
 		});
 	});
