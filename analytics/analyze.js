@@ -51,44 +51,48 @@ const analyzeCollatzOutput = async () => {
 	const firstToBreak500M = findFirstToBreakX(data, 500_000_000);
 	const firstToBreak1B = findFirstToBreakX(data, 1_000_000_000);
 
-	const resultsArray = [
-		firstAndLastSeed,
-		seqLengthStats,
-		longestStraightDrop,
-		firstToBreak100,
-		firstToBreak500,
-		firstToBreak1Th,
-		firstToBreak5Th,
-		firstToBreak10Th,
-		firstToBreak25Th,
-		firstToBreak50Th,
-		firstToBreak100Th,
-		firstToBreak500Th,
-		firstToBreak1M,
-		firstToBreak5M,
-		firstToBreak10M,
-		firstToBreak25M,
-		firstToBreak50M,
-		firstToBreak100M,
-		largestHailstone,
-		firstToBreak500M,
-		firstToBreak1B,
-		hailstoneData,
-		largestPropDiff,
-	];
+  const milestoneResults = {
+    firstToBreak100,
+    firstToBreak500,
+    firstToBreak1Th,
+    firstToBreak5Th,
+    firstToBreak10Th,
+    firstToBreak25Th,
+    firstToBreak50Th,
+    firstToBreak100Th,
+    firstToBreak500Th,
+    firstToBreak1M,
+    firstToBreak5M,
+    firstToBreak10M,
+    firstToBreak25M,
+    firstToBreak50M,
+    firstToBreak100M,
+    firstToBreak500M,
+    firstToBreak1B
+  }
+  
 
-	const formatedResults = formatResults(resultsArray);
+	const results = {
+    firstAndLastSeed,
+    seqLengthStats,
+    largestHailstone,
+    longestStraightDrop,
+    largestPropDiff,
+    hailstoneData,
+    milestoneResults
+  };
+
+	
+	const formatedResults = formatResults(results);
 
 	try {
 		await writeFile(outputFilePath, formatedResults);
 		console.log("File written successfully");
-    console.timeEnd("timeProg");
+		console.timeEnd("timeProg");
 	} catch (err) {
 		console.error("Error writing file:", err);
-    console.timeEnd("timeProg");
+		console.timeEnd("timeProg");
 	}
-
-	
 };
 
 analyzeCollatzOutput();
