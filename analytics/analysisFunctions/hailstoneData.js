@@ -64,6 +64,8 @@ export const analyzeEachHailstone = async (data) => {
 	});
 
 	return {
+    totalHailstones: totalHailstones.toLocaleString(),
+    totalUniqueHailstones: totalUniqueHailstones.toLocaleString(),
 		ones: {
 			all: leadingDigitCount[0].all.toLocaleString(),
 			allFreq:leadingDigitCount[0].percentFreqOfAll,

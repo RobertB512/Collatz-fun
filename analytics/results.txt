@@ -8,6 +8,12 @@ First Seed Tested:   1
 Last Seed Tested:    100,000
 
 
+Total Hailstones
+-------------------
+All:       10,753,843
+Unique:    198,211
+
+
 Largest Hailstone
 ---------------------------------
 Seed:           77,671
