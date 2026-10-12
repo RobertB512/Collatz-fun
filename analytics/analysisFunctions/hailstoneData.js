@@ -1,6 +1,6 @@
-export const analyzeEachHailstone = async (data) => {
+export const analyzeEachHailstone = async (seqInfo) => {
 	// for leading digit counts
-  let leadingDigitCount = [
+	let leadingDigitCount = [
 		{ all: 0, percentFreqOfAll: 0, unique: 0, percentFreqOfUnique: 0 },
 		{ all: 0, percentFreqOfAll: 0, unique: 0, percentFreqOfUnique: 0 },
 		{ all: 0, percentFreqOfAll: 0, unique: 0, percentFreqOfUnique: 0 },
@@ -12,20 +12,20 @@ export const analyzeEachHailstone = async (data) => {
 		{ all: 0, percentFreqOfAll: 0, unique: 0, percentFreqOfUnique: 0 },
 	];
 	let temp = 0;
-  let totalHailstones = 0;
-  let totalUniqueHailstones = 0;
+	let totalHailstones = 0;
+	let totalUniqueHailstones = 0;
 
 	// multi purpose
 	let hailstonesSeen = new Set();
 
 	// for even and odd counts
 	let evenAndOddCount = {
-		evens: { all: 0, unique: 0 }, 
-		odds: { all: 0, unique: 0 }, 
-  };
+		evens: { all: 0, unique: 0 },
+		odds: { all: 0, unique: 0 },
+	};
 
 	// the main logic
-	data.forEach((seq) => {
+	seqInfo.forEach((seq) => {
 		seq.hailstoneSeq.forEach((hailstone) => {
 			temp = hailstone;
 
@@ -37,47 +37,50 @@ export const analyzeEachHailstone = async (data) => {
 				hailstonesSeen.add(hailstone);
 				leadingDigitCount[temp - 1].all++;
 				leadingDigitCount[temp - 1].unique++;
-        totalHailstones++;
-        totalUniqueHailstones++;
-        if (hailstone % 2 == 0) {
-          evenAndOddCount.evens.unique++
-          evenAndOddCount.evens.all++
-        } else {
-          evenAndOddCount.odds.unique++;
-          evenAndOddCount.odds.all++;
-        }
+				totalHailstones++;
+				totalUniqueHailstones++;
+				if (hailstone % 2 == 0) {
+					evenAndOddCount.evens.unique++;
+					evenAndOddCount.evens.all++;
+				} else {
+					evenAndOddCount.odds.unique++;
+					evenAndOddCount.odds.all++;
+				}
 			} else {
 				leadingDigitCount[temp - 1].all++;
-        totalHailstones++;
-        if (hailstone % 2 == 0) {
-          evenAndOddCount.evens.all++
-        } else {
-          evenAndOddCount.odds.all++;
-        }
+				totalHailstones++;
+				if (hailstone % 2 == 0) {
+					evenAndOddCount.evens.all++;
+				} else {
+					evenAndOddCount.odds.all++;
+				}
 			}
 		});
 	});
 
-  leadingDigitCount.forEach((digit) => {
+	leadingDigitCount.forEach((digit) => {
 		digit.percentFreqOfAll = ((digit.all / totalHailstones) * 100).toFixed(2);
-		digit.percentFreqOfUnique = ((digit.unique / totalUniqueHailstones) * 100).toFixed(2);
+		digit.percentFreqOfUnique = (
+			(digit.unique / totalUniqueHailstones) *
+			100
+		).toFixed(2);
 	});
 
 	return {
-    totalHailstones: totalHailstones.toLocaleString(),
-    totalUniqueHailstones: totalUniqueHailstones.toLocaleString(),
+		totalHailstones: totalHailstones.toLocaleString(),
+		totalUniqueHailstones: totalUniqueHailstones.toLocaleString(),
 		ones: {
 			all: leadingDigitCount[0].all.toLocaleString(),
-			allFreq:leadingDigitCount[0].percentFreqOfAll,
+			allFreq: leadingDigitCount[0].percentFreqOfAll,
 			unique: leadingDigitCount[0].unique.toLocaleString(),
 			uniqueFreq: leadingDigitCount[0].percentFreqOfUnique,
-    },
+		},
 		twos: {
 			all: leadingDigitCount[1].all.toLocaleString(),
 			allFreq: leadingDigitCount[1].percentFreqOfAll,
 			unique: leadingDigitCount[1].unique.toLocaleString(),
 			uniqueFreq: leadingDigitCount[1].percentFreqOfUnique,
-    },
+		},
 		threes: {
 			all: leadingDigitCount[2].all.toLocaleString(),
 			allFreq: leadingDigitCount[2].percentFreqOfAll,
@@ -123,10 +126,78 @@ export const analyzeEachHailstone = async (data) => {
 		evenHailstoneCount: {
 			all: evenAndOddCount.evens.all.toLocaleString(),
 			unique: evenAndOddCount.evens.unique.toLocaleString(),
-    },
+		},
 		oddHailstoneCount: {
 			all: evenAndOddCount.odds.all.toLocaleString(),
 			unique: evenAndOddCount.odds.unique.toLocaleString(),
 		},
+	};
+};
+
+export const findLargestHailstone = (seqInfo) => {
+	let largestHailstone = 0;
+	let hailstoneSeed = 0;
+
+	for (const seq of seqInfo) {
+		let currentLargest = seq.highestHailstone;
+		let currentSeed = seq.seed;
+
+		if (currentLargest > largestHailstone) {
+			largestHailstone = currentLargest;
+			hailstoneSeed = currentSeed;
+		}
+	}
+
+	return {
+		seed: hailstoneSeed.toLocaleString(),
+		largestHailstone: largestHailstone.toLocaleString(),
+	};
+};
+
+export const findFirstToBreakX = (seqInfo, hitPoint) => {
+	// This function finds the first hailstone out of all sequences to hit a number.
+	// Ex: finds the first number in all sequences combined to hit 1,000, 5,000, 10,000,
+	// or any other number. For this project, these hit points will be predetermined.
+
+	// const seqCollection = collatzArray;
+	const numberToHit = hitPoint;
+	const errorMsg = `error or number to hit ${numberToHit} is TBD.`;
+
+	for (const seq of seqInfo) {
+		const hailstoneNumber = seq.hailstoneSeq.find((val) => val >= numberToHit);
+
+		if (hailstoneNumber !== undefined) {
+			return {
+				numberToHit: numberToHit.toLocaleString(),
+				seed: seq.seed.toLocaleString(),
+				numberThatHit: hailstoneNumber.toLocaleString(),
+			};
+		}
+	}
+	return errorMsg;
+};
+
+export const findLargestDiff = (seqInfo) => {
+	// This function finds the largest proportional difference between a seed and its highest hailstone out off all hailstones.
+
+	let currSeed = 0;
+	let currHailstone = 0;
+	let currDiff = 0;
+	let largestDiff = 0;
+
+	seqInfo.forEach((seq) => {
+		currDiff = ((seq.highestHailstone - seq.seed) / seq.seed) * 100;
+
+		if (currDiff > largestDiff) {
+			largestDiff = currDiff;
+			currSeed = seq.seed;
+			currHailstone = seq.highestHailstone;
+		}
+	});
+
+	return {
+		difference: Math.floor(largestDiff).toLocaleString(),
+		seed: currSeed.toLocaleString(),
+		hailstone: currHailstone.toLocaleString(),
 	};
 };

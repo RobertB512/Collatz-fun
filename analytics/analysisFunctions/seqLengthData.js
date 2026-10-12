@@ -1,85 +1,42 @@
-const findMedianLength = (arr) => {
+const findMedianLength = (seqInfo) => {
 	let median = 0;
 	let index = 0;
 
-	arr.sort((a, b) => a - b);
-	if (arr.length % 2 == 0) {
-		index = arr.length / 2;
-		return (median = ((arr[index] + arr[index - 1]) / 2).toFixed(2));
-	} else if (arr.length % 2 == 1) {
-		index = Math.floor(arr.length / 2);
-		return (median = arr[index]);
+	seqInfo.sort((a, b) => a - b);
+	if (seqInfo.length % 2 == 0) {
+		index = seqInfo.length / 2;
+		return (median = ((seqInfo[index] + seqInfo[index - 1]) / 2).toFixed(2));
+	} else if (seqInfo.length % 2 == 1) {
+		index = Math.floor(seqInfo.length / 2);
+		return (median = seqInfo[index]);
 	}
 };
 
-const findMeanLength = (arr) => {
+const findMeanLength = (seqInfo) => {
 	let total = 0;
 
-	for (let x of arr) {
+	for (let x of seqInfo) {
 		total += x;
 	}
 
-	return (total / arr.length).toFixed(2);
+	return (total / seqInfo.length).toFixed(2);
 };
 
-const findSdLength = (arr, mean) => {
+const findSdLength = (seqInfo, mean) => {
 	let variance = 0;
 	let squaredDiff = 0;
 	let sdOfSeqLength = 0;
 
 	// find squared difference of seq length
-	for (let num of arr) {
+	for (let num of seqInfo) {
 		squaredDiff += (num - mean) ** 2;
 	}
 
 	// find variance of seq length
-	variance = squaredDiff / arr.length;
+	variance = squaredDiff / seqInfo.length;
 
 	// find the pop std of squared differences (variance)
 	return (sdOfSeqLength = Math.sqrt(variance).toFixed(2));
-};
-
-export const findLargestHailstone = (seqInfo) => {
-	let largestHailstone = 0;
-	let hailstoneSeed = 0;
-
-	for (const seq of seqInfo) {
-		let currentLargest = seq.highestHailstone;
-		let currentSeed = seq.seed;
-
-		if (currentLargest > largestHailstone) {
-			largestHailstone = currentLargest;
-			hailstoneSeed = currentSeed;
-		}
-	}
-
-	return {
-		seed: hailstoneSeed.toLocaleString(),
-		largestHailstone: largestHailstone.toLocaleString(),
-	};
-};
-
-export const findFirstToBreakX = (seqInfo, hitPoint) => {
-	// This function finds the first hailstone out of all sequences to hit a number.
-	// Ex: finds the first number in all sequences combined to hit 1,000, 5,000, 10,000,
-	// or any other number. For this project, these hit points will be predetermined.
-
-	// const seqCollection = collatzArray;
-	const numberToHit = hitPoint;
-	const errorMsg = `error or number to hit ${numberToHit} is TBD.`;
-
-	for (const seq of seqInfo) {
-		const hailstoneNumber = seq.hailstoneSeq.find((val) => val >= numberToHit);
-
-		if (hailstoneNumber !== undefined) {
-			return {
-				numberToHit: numberToHit.toLocaleString(),
-				seed: seq.seed.toLocaleString(),
-				numberThatHit: hailstoneNumber.toLocaleString(),
-			};
-		}
-	}
-	return errorMsg;
 };
 
 export const analyzeHailstoneSeq = async (seqInfo) => {
@@ -193,25 +150,4 @@ export const findLongestStraightDrop = (seqInfo) => {
 	};
 };
 
-export const findLargestDiff = (arr) => {
-	let currSeed = 0;
-	let currHailstone = 0;
-  let currDiff = 0;
-	let largestDiff = 0;
 
-	arr.forEach((seq) => {
-		currDiff = ((seq.highestHailstone - seq.seed) / seq.seed) * 100;
-
-		if (currDiff > largestDiff) {
-			largestDiff = currDiff;
-			currSeed = seq.seed;
-			currHailstone = seq.highestHailstone;
-		}
-	});
-
-	return {
-		difference: Math.floor(largestDiff).toLocaleString(),
-		seed: currSeed.toLocaleString(),
-		hailstone: currHailstone.toLocaleString(),
-	};
-};

@@ -1,7 +1,7 @@
-export const breakUpSeq = (collatzArray) => {
+export const breakUpSeq = (seqInfo) => {
 	const seqCollection = [];
 
-	collatzArray.forEach((seq) => {
+	seqInfo.forEach((seq) => {
 		// Get seed
 		const lines = seq.split("\n");
 		const cleanedLines = lines.filter((val) => val.trim());
