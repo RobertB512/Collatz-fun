@@ -40,7 +40,7 @@ If you want to learn more, go on YouTube or Google and search "Collatz conjectur
 └── README.md
 ```
 
-## What Is In Each File
+### What's In Each File
 
 - **collatz.js:** This file’s code performs the operations of the Collatz conjecture. To determine where to begin, the code looks at the last number tested in dataOutput.ndjson and then continues until it has gone through x more numbers, determined by a variable in the code. This variable must be changed manually, there is not a way to change this variable via the terminal at the moment. The variable never has to be changed though, since when the code is run, it will always continue from where the previous run left off. I have also added a few details for the code to analyze and test to make additional analysis easier and faster.
 - **dataOutput.ndjson:** This is an output file showing the results of all numbers tested with the Collatz conjecture with collatz.js, including the minor analytics mentioned.
@@ -56,8 +56,6 @@ If you want to learn more, go on YouTube or Google and search "Collatz conjectur
 **NOTE:** This program requires Node to be installed. If you do not know how to install or work with Node, there are plenty of tutorials online.
 
 **NOTE:** In my terminal, I use bash. I do not know how to use any other Linux shell or even PowerShell on Windows. If you use a different shell/terminal then I do, you might need to type in different commands than what I list below.
-
-### Steps to run the code
 
 1. Install Node, if it is not already installed.
 2. Download the folder and files that are part of this repo.
