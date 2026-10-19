@@ -36,6 +36,7 @@ If you want to learn more, go on YouTube or Google and search "Collatz conjectur
 │   └── results.txt
 ├── collatz.js
 ├── dataOutput.ndjson
+├── DESIGN.md
 ├── package.json
 └── README.md
 ```
@@ -44,11 +45,12 @@ If you want to learn more, go on YouTube or Google and search "Collatz conjectur
 
 - **collatz.js:** This file’s code performs the operations of the Collatz conjecture. To determine where to begin, the code looks at the last number tested in dataOutput.ndjson and then continues until it has gone through x more numbers, determined by a variable in the code. This variable must be changed manually, there is not a way to change this variable via the terminal at the moment. The variable never has to be changed though, since when the code is run, it will always continue from where the previous run left off. I have also added a few details for the code to analyze and test to make additional analysis easier and faster.
 - **dataOutput.ndjson:** This is an output file showing the results of all numbers tested with the Collatz conjecture with collatz.js, including the minor analytics mentioned.
-- **analytics** This folder contains the file that analyzes the output data, a folder where different parts of the analysis are broken up into, and the results file itself.
-- **analysisFunctions** This folder is part of the analytics folder and contains the bulk of the logic for the program. Most of the functions used are split across each file in this folder.
+- **analytics:** This folder contains the file that analyzes the output data, a folder where different parts of the analysis are broken up into, and the results file itself.
+- **analysisFunctions:** This folder is part of the analytics folder and contains the bulk of the logic for the program. Most of the functions used are split across each file in this folder.
 - **analyze.js:** This file, also part of the analytics folder, contains the code that performs the analytics on the data in the conjecture output file. Most of this file's functions comes from the folder mentioned just above.
 - **results.txt:** This file is where all the data from the analytics are output to for easier reading.
-- **package.json: ** This file contains some extra code to support some of the features in this project.
+- **DESIGN.md:** This file describes why I made the changes I made over the course of this project.
+- **package.json:** This file contains some extra code to support some of the features in this project.
 - **README.md:** This file is in no way part of the code. It’s just a file to explain this project.
 
 ## Want To See How This Code Works?
